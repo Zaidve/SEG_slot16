@@ -7,8 +7,9 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 from django.urls import reverse
 from PIL import Image
+from rest_framework.test import APIClient, APITestCase
 
-from .models import Category, Comment, Document, Report, SiteSetting, Tag, User
+from .models import Category, Comment, Document, Like, Report, SiteSetting, Tag, User, UserTag
 from .roles import CONTENT_MANAGER, DATA_SEO, MODERATOR, STAFF_ROLES, SUPER_ADMIN
 
 
@@ -393,3 +394,451 @@ class ReaderAdminTests(AdminTestCase):
         response = self.client.get(reverse('admin:portal_document_changelist'))
         self.assertEqual(response.status_code, 302)
         self.assertIn('/admin/login/', response.url)
+
+
+STRONG_PASSWORD = 'plum-Harbor-917'
+
+
+def published(author, **fields):
+    return make_document(author, status=Document.Status.PUBLISHED, **fields)
+
+
+def png_upload():
+    buffer = io.BytesIO()
+    Image.new('RGB', (2, 2)).save(buffer, 'PNG')
+    return SimpleUploadedFile('photo.png', buffer.getvalue(), 'image/png')
+
+
+class AccountApiTests(APITestCase):
+    def register(self, **extra):
+        return self.client.post('/api/auth/register', {
+            'username': 'newuser', 'password': STRONG_PASSWORD, **extra,
+        }, format='json')
+
+    def test_register_logs_the_user_in(self):
+        self.assertEqual(self.register().status_code, 201)
+        self.assertEqual(self.client.get('/api/profile').data['username'], 'newuser')
+
+    def test_register_never_returns_the_password(self):
+        self.assertNotIn('password', self.register().data)
+
+    def test_register_stores_a_hashed_password(self):
+        self.register()
+        user = User.objects.get(username='newuser')
+        self.assertNotEqual(user.password, STRONG_PASSWORD)
+        self.assertTrue(user.check_password(STRONG_PASSWORD))
+
+    def test_register_ignores_privilege_fields(self):
+        self.register(is_staff=True, is_superuser=True)
+        user = User.objects.get(username='newuser')
+        self.assertFalse(user.is_staff)
+        self.assertFalse(user.is_superuser)
+
+    def test_register_rejects_weak_password(self):
+        response = self.register(password='12345')
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('password', response.data)
+
+    def test_register_rejects_duplicate_username(self):
+        make_user(username='newuser')
+        response = self.register()
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('username', response.data)
+
+    def test_login_and_logout(self):
+        User.objects.create_user('someone', password=STRONG_PASSWORD)
+        response = self.client.post('/api/auth/login', {
+            'username': 'someone', 'password': STRONG_PASSWORD,
+        }, format='json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(self.client.get('/api/profile').status_code, 200)
+        self.assertEqual(self.client.post('/api/auth/logout').status_code, 204)
+        self.assertEqual(self.client.get('/api/profile').status_code, 403)
+
+    def test_login_rejects_wrong_password(self):
+        User.objects.create_user('someone', password=STRONG_PASSWORD)
+        response = self.client.post('/api/auth/login', {
+            'username': 'someone', 'password': 'wrong',
+        }, format='json')
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(self.client.get('/api/profile').status_code, 403)
+
+
+class CsrfApiTests(APITestCase):
+    def setUp(self):
+        self.client = APIClient(enforce_csrf_checks=True)
+        self.user = User.objects.create_user('someone', password=STRONG_PASSWORD)
+        self.credentials = {'username': 'someone', 'password': STRONG_PASSWORD}
+
+    def token(self):
+        return self.client.cookies['csrftoken'].value
+
+    def test_login_needs_a_token(self):
+        response = self.client.post('/api/auth/login', self.credentials, format='json')
+        self.assertEqual(response.status_code, 403)
+
+    def test_register_needs_a_token(self):
+        response = self.client.post('/api/auth/register', {
+            'username': 'x', 'password': STRONG_PASSWORD,
+        }, format='json')
+        self.assertEqual(response.status_code, 403)
+        self.assertFalse(User.objects.filter(username='x').exists())
+
+    def test_login_works_with_the_cookie_from_the_csrf_endpoint(self):
+        self.client.get('/api/auth/csrf')
+        response = self.client.post(
+            '/api/auth/login', self.credentials, format='json',
+            HTTP_X_CSRFTOKEN=self.token(),
+        )
+        self.assertEqual(response.status_code, 200)
+
+    def test_logged_in_write_needs_a_token(self):
+        document = published(self.user)
+        self.client.force_login(self.user)
+        url = f'/api/documents/{document.pk}/like'
+        self.assertEqual(self.client.post(url).status_code, 403)
+        self.assertFalse(Like.objects.exists())
+        self.client.get('/api/auth/csrf')
+        response = self.client.post(url, HTTP_X_CSRFTOKEN=self.token())
+        self.assertEqual(response.status_code, 200)
+
+
+class ProfileApiTests(APITestCase):
+    def setUp(self):
+        self.user = make_user()
+        self.client.force_login(self.user)
+
+    def test_guest_is_rejected(self):
+        self.client.logout()
+        self.assertEqual(self.client.get('/api/profile').status_code, 403)
+        response = self.client.patch('/api/profile', {'bio': 'x'}, format='json')
+        self.assertEqual(response.status_code, 403)
+
+    def test_edit_profile(self):
+        response = self.client.patch(
+            '/api/profile', {'display_name': 'New', 'bio': 'Hello'}, format='json'
+        )
+        self.assertEqual(response.status_code, 200)
+        self.user.refresh_from_db()
+        self.assertEqual((self.user.display_name, self.user.bio), ('New', 'Hello'))
+
+    def test_upload_avatar(self):
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as media:
+            with self.settings(MEDIA_ROOT=media):
+                response = self.client.patch(
+                    '/api/profile', {'avatar': png_upload()}, format='multipart'
+                )
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('/media/avatars/', response.data['avatar'])
+
+    def test_rejects_a_file_that_is_not_an_image(self):
+        fake = SimpleUploadedFile('x.png', b'not an image', 'image/png')
+        response = self.client.patch('/api/profile', {'avatar': fake}, format='multipart')
+        self.assertEqual(response.status_code, 400)
+
+    def test_cannot_change_protected_fields(self):
+        self.client.patch('/api/profile', {
+            'username': 'hacked', 'is_staff': True, 'is_superuser': True,
+        }, format='json')
+        self.user.refresh_from_db()
+        self.assertEqual(self.user.username, 'someone')
+        self.assertFalse(self.user.is_staff)
+        self.assertFalse(self.user.is_superuser)
+
+    def test_put_is_not_allowed(self):
+        response = self.client.put('/api/profile', {'bio': 'x'}, format='json')
+        self.assertEqual(response.status_code, 405)
+
+
+class DocumentApiTests(APITestCase):
+    def setUp(self):
+        self.author = make_user(username='author')
+
+    def test_list_returns_only_published(self):
+        published(self.author, slug='live')
+        make_document(self.author, slug='draft')
+        make_document(self.author, slug='gone', status=Document.Status.UNPUBLISHED)
+        response = self.client.get('/api/documents')
+        self.assertEqual([d['slug'] for d in response.data['results']], ['live'])
+
+    def test_list_has_summaries_but_not_full_content(self):
+        published(self.author, summary='Short')
+        result = self.client.get('/api/documents').data['results'][0]
+        self.assertEqual(result['summary'], 'Short')
+        self.assertNotIn('content', result)
+
+    def test_list_is_paginated_newest_first(self):
+        for number in range(12):
+            published(self.author, slug=f'doc-{number}')
+        first = self.client.get('/api/documents').data
+        second = self.client.get('/api/documents?page=2').data
+        self.assertEqual(first['count'], 12)
+        self.assertEqual(len(first['results']), 10)
+        self.assertEqual(len(second['results']), 2)
+        self.assertEqual(first['results'][0]['slug'], 'doc-11')
+        self.assertEqual(second['results'][-1]['slug'], 'doc-0')
+
+    def test_page_past_the_end_is_404(self):
+        self.assertEqual(self.client.get('/api/documents?page=9').status_code, 404)
+
+    def test_detail_has_all_metadata(self):
+        tag = Tag.objects.create(name='Tech', slug='tech')
+        document = published(self.author, seo_title='SEO')
+        document.tags.add(tag)
+        data = self.client.get(f'/api/documents/{document.slug}').data
+        self.assertEqual(data['content'], '<p>Body</p>')
+        self.assertEqual(data['category']['slug'], 'news')
+        self.assertEqual(data['author'], 'author')
+        self.assertEqual(data['tags'][0]['slug'], 'tech')
+        self.assertEqual(data['seo_title'], 'SEO')
+
+    def test_detail_does_not_expose_the_author_email(self):
+        User.objects.filter(pk=self.author.pk).update(email='private@example.com')
+        document = published(self.author)
+        response = self.client.get(f'/api/documents/{document.slug}')
+        self.assertNotIn('private@example.com', response.content.decode())
+
+    def test_draft_and_unpublished_are_404(self):
+        draft = make_document(self.author, slug='draft')
+        gone = make_document(self.author, slug='gone', status=Document.Status.UNPUBLISHED)
+        for document in (draft, gone):
+            with self.subTest(status=document.status):
+                response = self.client.get(f'/api/documents/{document.slug}')
+                self.assertEqual(response.status_code, 404)
+                document.refresh_from_db()
+                self.assertEqual(document.views_count, 0)
+
+    def test_detail_adds_one_view(self):
+        document = published(self.author)
+        self.client.get(f'/api/documents/{document.slug}')
+        response = self.client.get(f'/api/documents/{document.slug}')
+        self.assertEqual(response.data['views_count'], 2)
+        document.refresh_from_db()
+        self.assertEqual(document.views_count, 2)
+
+    def test_counting_a_view_does_not_touch_updated_at(self):
+        document = published(self.author)
+        before = document.updated_at
+        self.client.get(f'/api/documents/{document.slug}')
+        document.refresh_from_db()
+        self.assertEqual(document.updated_at, before)
+
+    def test_liked_flag_follows_the_session(self):
+        document = published(self.author)
+        reader = make_user()
+        Like.objects.create(user=reader, document=document)
+        guest = self.client.get(f'/api/documents/{document.slug}').data
+        self.assertFalse(guest['liked'])
+        self.assertEqual(guest['like_count'], 1)
+        self.client.force_login(reader)
+        self.assertTrue(self.client.get(f'/api/documents/{document.slug}').data['liked'])
+
+    def test_user_tags_appear_once_each(self):
+        document = published(self.author)
+        tag = Tag.objects.create(name='Tech', slug='tech')
+        UserTag.objects.create(user=self.author, document=document, tag=tag)
+        UserTag.objects.create(user=make_user(), document=document, tag=tag)
+        data = self.client.get(f'/api/documents/{document.slug}').data
+        self.assertEqual([t['slug'] for t in data['user_tags']], ['tech'])
+
+    def test_categories_and_tags_are_public(self):
+        Category.objects.create(name='Sport', slug='sport')
+        Tag.objects.create(name='Tech', slug='tech')
+        self.assertEqual(self.client.get('/api/categories').data[0]['slug'], 'sport')
+        self.assertEqual(self.client.get('/api/tags').data[0]['slug'], 'tech')
+
+    def test_public_lists_are_read_only(self):
+        for url in ('/api/documents', '/api/categories', '/api/tags'):
+            with self.subTest(url=url):
+                self.client.force_login(self.author)
+                self.assertEqual(self.client.post(url, {}, format='json').status_code, 405)
+
+
+class CommentApiTests(APITestCase):
+    def setUp(self):
+        self.reader = make_user()
+        self.document = published(make_user(username='author'))
+        self.url = f'/api/documents/{self.document.pk}/comments'
+
+    def test_only_visible_comments_are_listed(self):
+        Comment.objects.create(document=self.document, user=self.reader, body='Shown')
+        Comment.objects.create(
+            document=self.document, user=self.reader, body='Hidden',
+            status=Comment.Status.HIDDEN,
+        )
+        results = self.client.get(self.url).data['results']
+        self.assertEqual([c['body'] for c in results], ['Shown'])
+
+    def test_guest_cannot_comment(self):
+        response = self.client.post(self.url, {'body': 'Hi'}, format='json')
+        self.assertEqual(response.status_code, 403)
+        self.assertFalse(Comment.objects.exists())
+
+    def test_comment_uses_the_session_user(self):
+        other = make_user(username='other')
+        self.client.force_login(self.reader)
+        response = self.client.post(self.url, {
+            'body': 'Hi', 'user': other.pk, 'user_id': other.pk,
+        }, format='json')
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(Comment.objects.get().user, self.reader)
+
+    def test_cannot_set_status_when_commenting(self):
+        self.client.force_login(self.reader)
+        self.client.post(self.url, {'body': 'Hi', 'status': 'hidden'}, format='json')
+        self.assertEqual(Comment.objects.get().status, Comment.Status.VISIBLE)
+
+    def test_blank_and_overlong_comments_are_rejected(self):
+        self.client.force_login(self.reader)
+        for body in ('   ', 'x' * 2001):
+            with self.subTest(length=len(body)):
+                response = self.client.post(self.url, {'body': body}, format='json')
+                self.assertEqual(response.status_code, 400)
+
+    def test_comments_on_a_draft_are_404(self):
+        draft = make_document(self.reader, slug='draft')
+        url = f'/api/documents/{draft.pk}/comments'
+        self.assertEqual(self.client.get(url).status_code, 404)
+        self.client.force_login(self.reader)
+        self.assertEqual(self.client.post(url, {'body': 'Hi'}, format='json').status_code, 404)
+        self.assertFalse(Comment.objects.exists())
+
+
+class LikeApiTests(APITestCase):
+    def setUp(self):
+        self.reader = make_user()
+        self.document = published(self.reader)
+        self.url = f'/api/documents/{self.document.pk}/like'
+
+    def test_guest_cannot_like(self):
+        self.assertEqual(self.client.post(self.url).status_code, 403)
+
+    def test_toggle(self):
+        self.client.force_login(self.reader)
+        first = self.client.post(self.url).data
+        self.assertEqual((first['liked'], first['like_count']), (True, 1))
+        second = self.client.post(self.url).data
+        self.assertEqual((second['liked'], second['like_count']), (False, 0))
+        self.assertFalse(Like.objects.exists())
+
+    def test_likes_are_per_user(self):
+        Like.objects.create(user=make_user(username='other'), document=self.document)
+        self.client.force_login(self.reader)
+        self.assertEqual(self.client.post(self.url).data['like_count'], 2)
+
+    def test_like_on_a_draft_is_404(self):
+        draft = make_document(self.reader, slug='draft')
+        self.client.force_login(self.reader)
+        self.assertEqual(self.client.post(f'/api/documents/{draft.pk}/like').status_code, 404)
+
+
+class UserTagApiTests(APITestCase):
+    def setUp(self):
+        self.reader = make_user()
+        self.document = published(self.reader)
+        self.tag = Tag.objects.create(name='Tech', slug='tech')
+        self.url = f'/api/documents/{self.document.pk}/tags'
+
+    def test_guest_cannot_tag(self):
+        response = self.client.post(self.url, {'tag': 'tech'}, format='json')
+        self.assertEqual(response.status_code, 403)
+
+    def test_add_tag_uses_the_session_user(self):
+        self.client.force_login(self.reader)
+        other = make_user(username='other')
+        response = self.client.post(self.url, {'tag': 'tech', 'user': other.pk}, format='json')
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(UserTag.objects.get().user, self.reader)
+
+    def test_adding_twice_keeps_one_row(self):
+        self.client.force_login(self.reader)
+        self.client.post(self.url, {'tag': 'tech'}, format='json')
+        response = self.client.post(self.url, {'tag': 'tech'}, format='json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(UserTag.objects.count(), 1)
+
+    def test_readers_cannot_invent_tags(self):
+        self.client.force_login(self.reader)
+        response = self.client.post(self.url, {'tag': 'made-up'}, format='json')
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(Tag.objects.count(), 1)
+
+    def test_tag_on_a_draft_is_404(self):
+        draft = make_document(self.reader, slug='draft')
+        self.client.force_login(self.reader)
+        url = f'/api/documents/{draft.pk}/tags'
+        self.assertEqual(self.client.post(url, {'tag': 'tech'}, format='json').status_code, 404)
+
+
+class ReportApiTests(APITestCase):
+    def setUp(self):
+        self.reader = make_user()
+        self.document = published(make_user(username='author'))
+        self.comment = Comment.objects.create(
+            document=self.document, user=self.reader, body='Spam'
+        )
+        self.url = f'/api/comments/{self.comment.pk}/report'
+
+    def test_guest_cannot_report(self):
+        response = self.client.post(self.url, {'reason': 'Spam'}, format='json')
+        self.assertEqual(response.status_code, 403)
+
+    def test_report_uses_the_session_user(self):
+        other = make_user(username='other')
+        self.client.force_login(self.reader)
+        response = self.client.post(self.url, {
+            'reason': 'Spam', 'reporter': other.pk, 'status': 'resolved',
+            'resolved_by': other.pk,
+        }, format='json')
+        self.assertEqual(response.status_code, 201)
+        report = Report.objects.get()
+        self.assertEqual(report.reporter, self.reader)
+        self.assertEqual(report.status, Report.Status.OPEN)
+        self.assertIsNone(report.resolved_by)
+
+    def test_reason_is_required(self):
+        self.client.force_login(self.reader)
+        self.assertEqual(self.client.post(self.url, {}, format='json').status_code, 400)
+
+    def test_same_user_cannot_report_twice_while_open(self):
+        self.client.force_login(self.reader)
+        self.client.post(self.url, {'reason': 'Spam'}, format='json')
+        response = self.client.post(self.url, {'reason': 'Spam'}, format='json')
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(Report.objects.count(), 1)
+
+    def test_hidden_comment_is_404(self):
+        Comment.objects.update(status=Comment.Status.HIDDEN)
+        self.client.force_login(self.reader)
+        response = self.client.post(self.url, {'reason': 'Spam'}, format='json')
+        self.assertEqual(response.status_code, 404)
+
+    def test_comment_on_a_draft_is_404(self):
+        Document.objects.update(status=Document.Status.DRAFT)
+        self.client.force_login(self.reader)
+        response = self.client.post(self.url, {'reason': 'Spam'}, format='json')
+        self.assertEqual(response.status_code, 404)
+
+
+class EveryRoleCanInteractTests(APITestCase):
+    """The last row of the role table: comment, like, tag and report."""
+
+    def test_every_role_including_reader(self):
+        author = make_user(username='author')
+        document = published(author)
+        Tag.objects.create(name='Tech', slug='tech')
+        for role in [*STAFF_ROLES, None]:
+            with self.subTest(role=role):
+                user = make_user(role, username=f'user-{role}')
+                self.client.force_login(user)
+                base = f'/api/documents/{document.pk}'
+                comment = self.client.post(f'{base}/comments', {'body': 'Hi'}, format='json')
+                self.assertEqual(comment.status_code, 201)
+                self.assertEqual(self.client.post(f'{base}/like').status_code, 200)
+                tag = self.client.post(f'{base}/tags', {'tag': 'tech'}, format='json')
+                self.assertEqual(tag.status_code, 201)
+                report = self.client.post(
+                    f"/api/comments/{comment.data['id']}/report",
+                    {'reason': 'Spam'}, format='json',
+                )
+                self.assertEqual(report.status_code, 201)

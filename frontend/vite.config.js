@@ -6,9 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     // Same origin in the browser, so session cookies work without CORS setup.
+    // changeOrigin must stay false: Django's CSRF check compares Origin to Host.
     proxy: {
-      '/api': 'http://127.0.0.1:8000',
-      '/media': 'http://127.0.0.1:8000',
+      '/api': { target: 'http://127.0.0.1:8000', changeOrigin: false },
+      '/media': { target: 'http://127.0.0.1:8000', changeOrigin: false },
     },
   },
 })
