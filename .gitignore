@@ -17,6 +17,7 @@ dist/
 # Background research, not part of the code
 /research_notes/
 /reports/
+/Bug/
 
 # Claude Code local files
 .claude/
