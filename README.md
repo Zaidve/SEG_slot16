@@ -23,6 +23,7 @@ A small news portal with a Django REST API, a PostgreSQL database and a React fr
    cd backend
    python -m venv .venv
    .venv\Scripts\python.exe -m pip install -r requirements.txt
+   .venv\Scripts\python.exe manage.py migrate
    ```
 
 4. Install the frontend:
