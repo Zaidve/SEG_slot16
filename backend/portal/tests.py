@@ -1092,3 +1092,155 @@ class SearchLoggingTests(SearchTestCase):
         self.click(query_id, document, 1)
         self.assertEqual(self.click(query_id, document, 1).status_code, 201)
         self.assertEqual(SearchClickLog.objects.filter(query_id=query_id).count(), 3)
+
+
+class AnalyticsAccessTests(TestCase):
+    def get_as(self, role):
+        self.client.force_login(make_user(role))
+        return self.client.get(reverse('analytics'))
+
+    def test_allowed_roles(self):
+        for role in (DATA_SEO, SUPER_ADMIN):
+            with self.subTest(role=role):
+                self.assertEqual(self.get_as(role).status_code, 200)
+                User.objects.all().delete()
+
+    def test_other_roles_get_403(self):
+        for role in (CONTENT_MANAGER, MODERATOR, None):
+            with self.subTest(role=role):
+                self.assertEqual(self.get_as(role).status_code, 403)
+                User.objects.all().delete()
+
+    def test_guest_goes_to_the_admin_login(self):
+        response = self.client.get(reverse('analytics'))
+        self.assertEqual(response.status_code, 302)
+        self.assertIn('/admin/login/', response.url)
+
+    def test_admin_home_links_to_it_for_allowed_roles(self):
+        link = reverse('analytics')
+        self.client.force_login(make_user(DATA_SEO))
+        self.assertContains(self.client.get(reverse('admin:index')), link)
+
+    def test_admin_home_hides_the_link_from_other_roles(self):
+        link = reverse('analytics')
+        self.client.force_login(make_user(MODERATOR))
+        self.assertNotContains(self.client.get(reverse('admin:index')), link)
+
+
+class AnalyticsNumbersTests(TestCase):
+    def setUp(self):
+        self.author = make_user(username='author')
+        self.client.force_login(make_user(DATA_SEO))
+
+    def dashboard(self):
+        return self.client.get(reverse('analytics')).context
+
+    def log(self, query, result_count=1, **fields):
+        return SearchClickLog.objects.create(
+            query_string=query, query_id=uuid.uuid4(), result_count=result_count, **fields
+        )
+
+    def test_empty_site_shows_zero(self):
+        response = self.client.get(reverse('analytics'))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['total_views'], 0)
+        self.assertContains(response, 'No searches yet.')
+
+    def test_total_views_adds_every_document(self):
+        published(self.author, slug='a', views_count=3)
+        published(self.author, slug='b', views_count=4)
+        self.assertEqual(self.dashboard()['total_views'], 7)
+
+    def test_most_viewed_is_ordered_and_skips_unread(self):
+        published(self.author, slug='low', views_count=1)
+        published(self.author, slug='high', views_count=9)
+        published(self.author, slug='none')
+        slugs = [d.slug for d in self.dashboard()['most_viewed']]
+        self.assertEqual(slugs, ['high', 'low'])
+
+    def test_lists_stop_at_ten(self):
+        for number in range(12):
+            published(self.author, slug=f'doc-{number}', views_count=1)
+            self.log(f'query {number}', result_count=0)
+        context = self.dashboard()
+        self.assertEqual(len(context['most_viewed']), 10)
+        self.assertEqual(len(context['top_queries']), 10)
+        self.assertEqual(len(context['zero_result_queries']), 10)
+
+    def test_top_queries_ignore_case(self):
+        self.log('Budget')
+        self.log('budget')
+        self.log('sport')
+        rows = list(self.dashboard()['top_queries'])
+        self.assertEqual(rows[0], {'query': 'budget', 'total': 2})
+        self.assertEqual(rows[1], {'query': 'sport', 'total': 1})
+
+    def test_top_queries_skip_filter_only_searches(self):
+        self.log('')
+        self.assertEqual(list(self.dashboard()['top_queries']), [])
+
+    def test_clicks_are_not_counted_as_searches(self):
+        document = published(self.author)
+        search = self.log('budget', result_count=0)
+        SearchClickLog.objects.create(
+            query_string='budget', query_id=search.query_id, clicked_doc=document, position=1
+        )
+        context = self.dashboard()
+        self.assertEqual(context['top_queries'][0]['total'], 1)
+        self.assertEqual(context['zero_result_queries'][0]['total'], 1)
+
+    def test_zero_result_queries_only_list_empty_searches(self):
+        self.log('found', result_count=3)
+        self.log('Missing', result_count=0)
+        self.assertEqual(
+            list(self.dashboard()['zero_result_queries']), [{'query': 'missing', 'total': 1}]
+        )
+
+    def test_click_on_a_deleted_document_is_not_a_zero_result_search(self):
+        document = published(self.author)
+        SearchClickLog.objects.create(
+            query_string='budget', query_id=uuid.uuid4(), clicked_doc=document, position=1
+        )
+        document.delete()
+        context = self.dashboard()
+        self.assertEqual(list(context['zero_result_queries']), [])
+        self.assertEqual(list(context['top_queries']), [])
+
+    def test_most_clicked_is_ordered(self):
+        one = published(self.author, slug='one')
+        two = published(self.author, slug='two')
+        published(self.author, slug='never')
+        for document, clicks in ((one, 1), (two, 2)):
+            for _ in range(clicks):
+                self.log('x', clicked_doc=document, position=1)
+        rows = [(d.slug, d.clicks) for d in self.dashboard()['most_clicked']]
+        self.assertEqual(rows, [('two', 2), ('one', 1)])
+
+    def test_query_text_is_escaped_on_the_page(self):
+        self.log('<script>alert(1)</script>')
+        response = self.client.get(reverse('analytics'))
+        self.assertNotContains(response, '<script>alert(1)</script>')
+        self.assertContains(response, '&lt;script&gt;alert(1)&lt;/script&gt;')
+
+    def test_numbers_change_after_using_the_site(self):
+        document = published(self.author, title='Budget talks')
+        before = self.dashboard()
+        self.assertEqual(before['total_views'], 0)
+        self.assertEqual(list(before['top_queries']), [])
+
+        site = APIClient()
+        query_id = site.get('/api/search?q=budget').data['query_id']
+        site.get('/api/search?q=nothing-here')
+        site.post('/api/search/click', {
+            'query_id': str(query_id), 'document': document.pk, 'position': 1,
+        }, format='json')
+        site.get(f'/api/documents/{document.slug}')
+
+        after = self.dashboard()
+        self.assertEqual(after['total_views'], 1)
+        self.assertEqual(after['most_viewed'][0], document)
+        self.assertIn({'query': 'budget', 'total': 1}, list(after['top_queries']))
+        self.assertEqual(
+            list(after['zero_result_queries']), [{'query': 'nothing-here', 'total': 1}]
+        )
+        self.assertEqual(after['most_clicked'][0], document)

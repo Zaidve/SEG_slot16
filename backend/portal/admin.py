@@ -8,6 +8,9 @@ from .models import Category, Comment, Document, Report, SiteSetting, Tag, User
 # The only Document fields the Data & SEO role may change.
 SEO_FIELDS = ('seo_title', 'seo_description', 'seo_keywords', 'image_alt')
 
+# Adds the analytics link to the admin home page.
+admin.site.index_template = 'portal/admin_index.html'
+
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):

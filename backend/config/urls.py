@@ -19,7 +19,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+from portal.analytics import analytics_dashboard
+
 urlpatterns = [
+    # Before admin/, which would otherwise treat this path as an unknown page.
+    path('admin/analytics/', analytics_dashboard, name='analytics'),
     path('admin/', admin.site.urls),
     path('api/', include('portal.urls')),
 ]

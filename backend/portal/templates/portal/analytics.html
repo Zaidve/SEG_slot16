@@ -1,0 +1,74 @@
+{% extends "admin/base_site.html" %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">Home</a> &rsaquo; Analytics
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+  <div class="module">
+    <h2>Total views</h2>
+    <p id="total-views" style="font-size: 2rem; padding: 8px 10px; margin: 0;">{{ total_views }}</p>
+  </div>
+
+  <div class="module" id="most-viewed">
+    <h2>Most-viewed documents</h2>
+    <table style="width: 100%;">
+      <thead><tr><th>Document</th><th>Views</th></tr></thead>
+      <tbody>
+        {% for document in most_viewed %}
+        <tr><td><a href="{% url 'admin:portal_document_change' document.pk %}">{{ document.title }}</a></td><td>{{ document.views_count }}</td></tr>
+        {% empty %}
+        <tr><td colspan="2">No views yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="module" id="top-queries">
+    <h2>Top search queries</h2>
+    <table style="width: 100%;">
+      <thead><tr><th>Query</th><th>Searches</th></tr></thead>
+      <tbody>
+        {% for row in top_queries %}
+        <tr><td>{{ row.query }}</td><td>{{ row.total }}</td></tr>
+        {% empty %}
+        <tr><td colspan="2">No searches yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="module" id="zero-result-queries">
+    <h2>Zero-result queries</h2>
+    <table style="width: 100%;">
+      <thead><tr><th>Query</th><th>Searches</th></tr></thead>
+      <tbody>
+        {% for row in zero_result_queries %}
+        <tr><td>{{ row.query }}</td><td>{{ row.total }}</td></tr>
+        {% empty %}
+        <tr><td colspan="2">Every search has found something.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="module" id="most-clicked">
+    <h2>Most-clicked documents</h2>
+    <table style="width: 100%;">
+      <thead><tr><th>Document</th><th>Clicks</th></tr></thead>
+      <tbody>
+        {% for document in most_clicked %}
+        <tr><td><a href="{% url 'admin:portal_document_change' document.pk %}">{{ document.title }}</a></td><td>{{ document.clicks }}</td></tr>
+        {% empty %}
+        <tr><td colspan="2">No clicks yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block sidebar %}{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+{% if perms.portal.view_analytics %}
+<p><a id="analytics-link" href="{% url 'analytics' %}">View the analytics dashboard</a></p>
+{% endif %}
+{{ block.super }}
+{% endblock %}
