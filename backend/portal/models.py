@@ -1,6 +1,23 @@
+import html
+import re
+
+import nh3
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils import timezone
+from django.utils.html import strip_tags
+
+# Tags that separate words, so <p>one</p><p>two</p> does not become "onetwo".
+WORD_BREAK_TAGS = re.compile(
+    r'</(p|div|li|h[1-6]|td|th|blockquote|pre)>|<(br|hr)\s*/?>', re.IGNORECASE
+)
+
+
+def html_to_text(content):
+    """Turn sanitized HTML into plain text for search."""
+    text = strip_tags(WORD_BREAK_TAGS.sub(' ', content))
+    return ' '.join(html.unescape(text).split())
 
 
 class User(AbstractUser):
@@ -79,6 +96,14 @@ class Document(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.content = nh3.clean(self.content)
+        self.content_text = html_to_text(self.content)
+        # Set only the first time, so re-publishing keeps the original date.
+        if self.status == self.Status.PUBLISHED and self.published_at is None:
+            self.published_at = timezone.now()
+        super().save(*args, **kwargs)
 
 
 class Comment(models.Model):
