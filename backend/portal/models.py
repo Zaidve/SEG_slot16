@@ -72,6 +72,10 @@ class Document(models.Model):
             models.Index(fields=['status']),
             models.Index(fields=['published_at']),
         ]
+        permissions = [
+            ('publish_document', 'Can publish or unpublish documents'),
+            ('edit_seo', 'Can edit SEO fields and alt text'),
+        ]
 
     def __str__(self):
         return self.title
@@ -196,6 +200,9 @@ class SearchClickLog(models.Model):
         ordering = ['-timestamp']
         indexes = [
             models.Index(fields=['query_id']),
+        ]
+        permissions = [
+            ('view_analytics', 'Can view the analytics dashboard'),
         ]
 
     def __str__(self):
