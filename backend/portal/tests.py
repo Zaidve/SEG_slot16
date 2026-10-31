@@ -1,5 +1,7 @@
+import datetime
 import io
 import tempfile
+import uuid
 
 from django.contrib.admin.models import LogEntry
 from django.contrib.auth.models import Group, Permission
@@ -9,8 +11,20 @@ from django.urls import reverse
 from PIL import Image
 from rest_framework.test import APIClient, APITestCase
 
-from .models import Category, Comment, Document, Like, Report, SiteSetting, Tag, User, UserTag
+from .models import (
+    Category,
+    Comment,
+    Document,
+    Like,
+    Report,
+    SearchClickLog,
+    SiteSetting,
+    Tag,
+    User,
+    UserTag,
+)
 from .roles import CONTENT_MANAGER, DATA_SEO, MODERATOR, STAFF_ROLES, SUPER_ADMIN
+from .search import search_documents
 
 
 def crud(model):
@@ -127,10 +141,10 @@ class StaffAccessTests(TestCase):
 
 def make_document(author, **fields):
     category, _ = Category.objects.get_or_create(name='News', slug='news')
+    fields.setdefault('title', 'A title')
     fields.setdefault('slug', 'a-title')
-    return Document.objects.create(
-        title='A title', content='<p>Body</p>', category=category, author=author, **fields
-    )
+    fields.setdefault('content', '<p>Body</p>')
+    return Document.objects.create(category=category, author=author, **fields)
 
 
 class DocumentSaveTests(TestCase):
@@ -842,3 +856,239 @@ class EveryRoleCanInteractTests(APITestCase):
                     {'reason': 'Spam'}, format='json',
                 )
                 self.assertEqual(report.status_code, 201)
+
+
+def on(year, month, day):
+    return datetime.datetime(year, month, day, 12, tzinfo=datetime.timezone.utc)
+
+
+class SearchTestCase(APITestCase):
+    def setUp(self):
+        self.author = make_user(username='author')
+
+    def slugs(self, url):
+        return [d['slug'] for d in self.client.get(url).data['results']]
+
+
+class SearchFunctionTests(SearchTestCase):
+    def test_takes_a_query_and_filters_and_returns_documents(self):
+        document = published(self.author, title='Budget talks')
+        self.assertEqual(list(search_documents('budget', {})), [document])
+
+    def test_a_draft_never_appears_even_when_it_matches(self):
+        make_document(self.author, slug='draft', title='Budget draft')
+        make_document(
+            self.author, slug='gone', title='Budget gone', status=Document.Status.UNPUBLISHED
+        )
+        self.assertEqual(list(search_documents('budget', {})), [])
+        self.assertEqual(list(search_documents('', {})), [])
+
+
+class SearchApiTests(SearchTestCase):
+    def test_matches_title_and_body_ignoring_case(self):
+        published(self.author, slug='in-title', title='Budget talks')
+        published(self.author, slug='in-body', content='<p>The BUDGET rose</p>')
+        published(self.author, slug='neither')
+        self.assertCountEqual(self.slugs('/api/search?q=budget'), ['in-title', 'in-body'])
+
+    def test_does_not_match_html_tags(self):
+        published(self.author, content='<p><strong>Bold</strong> news</p>')
+        self.assertEqual(self.slugs('/api/search?q=strong'), [])
+
+    def test_draft_is_not_in_results(self):
+        make_document(self.author, slug='draft', title='Budget draft')
+        response = self.client.get('/api/search?q=budget')
+        self.assertEqual(response.data['count'], 0)
+
+    def test_percent_sign_is_not_a_wildcard(self):
+        published(self.author, title='Budget')
+        self.assertEqual(self.slugs('/api/search?q=%25'), [])
+
+    def test_category_filter(self):
+        sport = Category.objects.create(name='Sport', slug='sport')
+        Document.objects.create(
+            title='Budget', slug='in-sport', content='<p>x</p>', category=sport,
+            author=self.author, status=Document.Status.PUBLISHED,
+        )
+        published(self.author, slug='in-news', title='Budget')
+        self.assertEqual(self.slugs('/api/search?q=budget&category=sport'), ['in-sport'])
+
+    def test_tag_filter(self):
+        tag = Tag.objects.create(name='Tech', slug='tech')
+        published(self.author, slug='tagged', title='Budget').tags.add(tag)
+        published(self.author, slug='plain', title='Budget')
+        self.assertEqual(self.slugs('/api/search?q=budget&tag=tech'), ['tagged'])
+
+    def test_date_filter_includes_both_ends(self):
+        published(self.author, slug='before', published_at=on(2026, 1, 1))
+        published(self.author, slug='start', published_at=on(2026, 2, 1))
+        published(self.author, slug='end', published_at=on(2026, 3, 1))
+        published(self.author, slug='after', published_at=on(2026, 4, 1))
+        self.assertEqual(
+            self.slugs('/api/search?from=2026-02-01&to=2026-03-01'), ['end', 'start']
+        )
+
+    def test_filters_combine(self):
+        tag = Tag.objects.create(name='Tech', slug='tech')
+        published(
+            self.author, slug='match', title='Budget', published_at=on(2026, 2, 1)
+        ).tags.add(tag)
+        published(
+            self.author, slug='too-old', title='Budget', published_at=on(2025, 2, 1)
+        ).tags.add(tag)
+        published(self.author, slug='no-tag', title='Budget', published_at=on(2026, 2, 1))
+        url = '/api/search?q=budget&category=news&tag=tech&from=2026-01-01'
+        self.assertEqual(self.slugs(url), ['match'])
+
+    def test_filters_work_without_a_keyword(self):
+        tag = Tag.objects.create(name='Tech', slug='tech')
+        published(self.author, slug='tagged').tags.add(tag)
+        published(self.author, slug='plain')
+        self.assertEqual(self.slugs('/api/search?tag=tech'), ['tagged'])
+
+    def test_unknown_filter_values_find_nothing(self):
+        published(self.author)
+        self.assertEqual(self.slugs('/api/search?category=missing'), [])
+        self.assertEqual(self.slugs('/api/search?tag=missing'), [])
+
+    def test_bad_dates_are_rejected_without_logging(self):
+        for value in ('not-a-date', '2026-02-31'):
+            with self.subTest(value=value):
+                response = self.client.get(f'/api/search?from={value}')
+                self.assertEqual(response.status_code, 400)
+                self.assertIn('from', response.data)
+        self.assertFalse(SearchClickLog.objects.exists())
+
+    def test_nul_character_does_not_crash(self):
+        published(self.author, title='Budget')
+        response = self.client.get('/api/search?q=Budg%00et&category=%00&tag=%00')
+        self.assertEqual(response.status_code, 200)
+
+    def test_results_are_paginated(self):
+        for number in range(12):
+            published(self.author, slug=f'doc-{number}', title='Budget')
+        first = self.client.get('/api/search?q=budget').data
+        second = self.client.get('/api/search?q=budget&page=2').data
+        self.assertEqual(first['count'], 12)
+        self.assertEqual(len(first['results']), 10)
+        self.assertEqual(len(second['results']), 2)
+
+
+class SearchLoggingTests(SearchTestCase):
+    def search(self, url='/api/search?q=budget'):
+        return self.client.get(url).data
+
+    def click(self, query_id, document, position, **extra):
+        return self.client.post('/api/search/click', {
+            'query_id': str(query_id), 'document': document.pk, 'position': position, **extra,
+        }, format='json')
+
+    def test_one_search_and_one_click_make_two_rows_sharing_a_query_id(self):
+        document = published(self.author, title='Budget talks')
+        query_id = self.search()['query_id']
+        self.assertEqual(self.click(query_id, document, 1).status_code, 201)
+
+        rows = SearchClickLog.objects.order_by('id')
+        self.assertEqual(rows.count(), 2)
+        search_row, click_row = rows
+        self.assertEqual(search_row.query_id, query_id)
+        self.assertEqual(click_row.query_id, query_id)
+        self.assertIsNone(search_row.clicked_doc)
+        self.assertIsNone(search_row.position)
+        self.assertEqual(search_row.query_string, 'budget')
+        self.assertEqual(search_row.result_count, 1)
+        self.assertEqual(click_row.clicked_doc, document)
+        self.assertEqual(click_row.position, 1)
+        self.assertEqual(click_row.query_string, 'budget')
+
+    def test_each_new_search_gets_its_own_query_id(self):
+        first = self.search()['query_id']
+        second = self.search()['query_id']
+        self.assertNotEqual(first, second)
+        self.assertEqual(SearchClickLog.objects.count(), 2)
+
+    def test_later_pages_keep_the_query_id_and_log_nothing(self):
+        for number in range(12):
+            published(self.author, slug=f'doc-{number}', title='Budget')
+        query_id = self.search()['query_id']
+        second = self.search(f'/api/search?q=budget&page=2&query_id={query_id}')
+        self.assertEqual(second['query_id'], query_id)
+        self.assertEqual(SearchClickLog.objects.count(), 1)
+
+    def test_position_counts_across_pages(self):
+        for number in range(12):
+            published(self.author, slug=f'doc-{number}', title='Budget')
+        document = Document.objects.get(slug='doc-0')
+        query_id = self.search()['query_id']
+        self.assertEqual(self.click(query_id, document, 12).status_code, 201)
+        self.assertEqual(SearchClickLog.objects.get(position=12).clicked_doc, document)
+
+    def test_made_up_query_id_on_search_starts_a_new_search(self):
+        made_up = uuid.uuid4()
+        for value in (made_up, 'not-a-uuid'):
+            with self.subTest(value=value):
+                data = self.search(f'/api/search?q=budget&query_id={value}')
+                self.assertNotEqual(str(data['query_id']), str(value))
+        self.assertEqual(SearchClickLog.objects.count(), 2)
+
+    def test_reusing_a_query_id_for_other_words_starts_a_new_search(self):
+        query_id = self.search()['query_id']
+        data = self.search(f'/api/search?q=other&query_id={query_id}')
+        self.assertNotEqual(data['query_id'], query_id)
+        self.assertEqual(SearchClickLog.objects.count(), 2)
+
+    def test_page_past_the_end_logs_nothing(self):
+        response = self.client.get('/api/search?q=budget&page=9')
+        self.assertEqual(response.status_code, 404)
+        self.assertFalse(SearchClickLog.objects.exists())
+
+    def test_zero_result_search_is_logged(self):
+        self.search('/api/search?q=nothing')
+        row = SearchClickLog.objects.get()
+        self.assertEqual((row.query_string, row.result_count), ('nothing', 0))
+
+    def test_guest_rows_have_no_user(self):
+        document = published(self.author, title='Budget')
+        self.click(self.search()['query_id'], document, 1)
+        self.assertFalse(SearchClickLog.objects.filter(user__isnull=False).exists())
+
+    def test_logged_in_rows_use_the_session_user(self):
+        reader = make_user()
+        other = make_user(username='other')
+        document = published(self.author, title='Budget')
+        self.client.force_login(reader)
+        query_id = self.search()['query_id']
+        self.click(query_id, document, 1, user=other.pk, user_id=other.pk)
+        self.assertEqual(SearchClickLog.objects.filter(user=reader).count(), 2)
+
+    def test_click_cannot_change_the_query_string(self):
+        document = published(self.author, title='Budget')
+        query_id = self.search()['query_id']
+        self.click(query_id, document, 1, query_string='forged')
+        self.assertFalse(SearchClickLog.objects.filter(query_string='forged').exists())
+
+    def test_unknown_query_id_is_404(self):
+        document = published(self.author)
+        self.assertEqual(self.click(uuid.uuid4(), document, 1).status_code, 404)
+
+    def test_click_on_a_draft_is_rejected(self):
+        published(self.author, slug='live', title='Budget')
+        draft = make_document(self.author, slug='draft')
+        response = self.click(self.search()['query_id'], draft, 1)
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(SearchClickLog.objects.count(), 1)
+
+    def test_impossible_positions_are_rejected(self):
+        document = published(self.author, title='Budget')
+        query_id = self.search()['query_id']
+        for position in (0, -1, 2):
+            with self.subTest(position=position):
+                self.assertEqual(self.click(query_id, document, position).status_code, 400)
+        self.assertEqual(SearchClickLog.objects.count(), 1)
+
+    def test_a_second_click_adds_another_row(self):
+        document = published(self.author, title='Budget')
+        query_id = self.search()['query_id']
+        self.click(query_id, document, 1)
+        self.assertEqual(self.click(query_id, document, 1).status_code, 201)
+        self.assertEqual(SearchClickLog.objects.filter(query_id=query_id).count(), 3)

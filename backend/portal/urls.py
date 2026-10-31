@@ -17,4 +17,6 @@ urlpatterns = [
     path('categories', views.CategoryListView.as_view()),
     path('tags', views.TagListView.as_view()),
     path('comments/<int:pk>/report', views.report_comment),
+    path('search', views.search),
+    path('search/click', views.search_click),
 ]

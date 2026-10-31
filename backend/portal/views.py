@@ -1,9 +1,12 @@
+import uuid
+
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.db import Error, connection
 from django.db.models import F
 from django.middleware.csrf import get_token
 from django.shortcuts import get_object_or_404
+from django.utils.dateparse import parse_date
 from rest_framework import generics, status
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.decorators import (
@@ -11,10 +14,22 @@ from rest_framework.decorators import (
     authentication_classes,
     permission_classes,
 )
+from rest_framework.exceptions import ValidationError
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 
-from .models import Category, Comment, Document, Like, Report, Tag, UserTag
+from .models import (
+    Category,
+    Comment,
+    Document,
+    Like,
+    Report,
+    SearchClickLog,
+    Tag,
+    UserTag,
+)
+from .search import search_documents
 from .serializers import (
     CategorySerializer,
     CommentSerializer,
@@ -24,6 +39,7 @@ from .serializers import (
     ProfileSerializer,
     RegisterSerializer,
     ReportSerializer,
+    SearchClickSerializer,
     TagSerializer,
     UserTagSerializer,
 )
@@ -194,3 +210,83 @@ def report_comment(request, pk):
     serializer.is_valid(raise_exception=True)
     serializer.save(comment=comment, reporter=request.user)
     return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+def text_param(request, name):
+    # PostgreSQL rejects NUL characters, so a crafted URL could cause a 500.
+    return request.query_params.get(name, '').replace('\x00', '').strip()
+
+
+def date_param(request, name):
+    value = text_param(request, name)
+    if not value:
+        return None
+    try:
+        date = parse_date(value)
+    except ValueError:  # the right shape but not a real date, like 2026-02-31
+        date = None
+    if date is None:
+        raise ValidationError({name: 'Enter a date as YYYY-MM-DD.'})
+    return date
+
+
+def existing_query_id(request, query):
+    """Return the query_id sent by a later page of this search, if it is real."""
+    try:
+        query_id = uuid.UUID(text_param(request, 'query_id'))
+    except ValueError:
+        return None
+    rows = SearchClickLog.objects.filter(query_id=query_id, query_string=query)
+    return query_id if rows.exists() else None
+
+
+@api_view(['GET'])
+def search(request):
+    query = text_param(request, 'q')
+    filters = {
+        'category': text_param(request, 'category'),
+        'tag': text_param(request, 'tag'),
+        'from': date_param(request, 'from'),
+        'to': date_param(request, 'to'),
+    }
+    paginator = PageNumberPagination()
+    page = paginator.paginate_queryset(search_documents(query, filters), request)
+
+    # Moving to another page is the same search, so it does not log a new row.
+    query_id = existing_query_id(request, query)
+    if query_id is None:
+        query_id = uuid.uuid4()
+        SearchClickLog.objects.create(
+            user=request.user if request.user.is_authenticated else None,
+            query_string=query,
+            query_id=query_id,
+            result_count=paginator.page.paginator.count,
+        )
+
+    serializer = DocumentListSerializer(page, many=True, context={'request': request})
+    response = paginator.get_paginated_response(serializer.data)
+    response.data['query_id'] = query_id
+    return response
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def search_click(request):
+    serializer = SearchClickSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    click = serializer.validated_data
+    # Copy the query from the search row instead of trusting the client.
+    search_row = get_object_or_404(
+        SearchClickLog, query_id=click['query_id'], position__isnull=True
+    )
+    if click['position'] > search_row.result_count:
+        raise ValidationError({'position': 'This search has fewer results.'})
+    SearchClickLog.objects.create(
+        user=request.user if request.user.is_authenticated else None,
+        query_string=search_row.query_string,
+        clicked_doc=click['document'],
+        query_id=search_row.query_id,
+        position=click['position'],
+        result_count=search_row.result_count,
+    )
+    return Response(status=status.HTTP_201_CREATED)

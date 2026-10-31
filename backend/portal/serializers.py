@@ -107,3 +107,11 @@ class ReportSerializer(serializers.ModelSerializer):
         model = Report
         fields = ('id', 'reason', 'status', 'created_at')
         read_only_fields = ('id', 'status', 'created_at')
+
+
+class SearchClickSerializer(serializers.Serializer):
+    query_id = serializers.UUIDField()
+    document = serializers.PrimaryKeyRelatedField(
+        queryset=Document.objects.filter(status=Document.Status.PUBLISHED)
+    )
+    position = serializers.IntegerField(min_value=1)
