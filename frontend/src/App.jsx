@@ -6,9 +6,11 @@ function App() {
 
   useEffect(() => {
     fetch('/api/health')
-      .then((response) => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`)
-        return response.json()
+      .then(async (response) => {
+        // A 503 still has a JSON body saying what is wrong, so show it.
+        const body = await response.json().catch(() => null)
+        if (!body) throw new Error(`HTTP ${response.status}`)
+        return body
       })
       .then(setHealth)
       .catch((err) => setError(err.message))

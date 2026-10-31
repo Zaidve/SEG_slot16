@@ -12,11 +12,11 @@ node_modules/
 dist/
 
 # Media uploads
-media/
+/backend/media/
 
 # Background research, not part of the code
-research_notes/
-reports/
+/research_notes/
+/reports/
 
 # Claude Code local files
 .claude/

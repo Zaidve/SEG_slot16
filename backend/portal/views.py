@@ -1,4 +1,5 @@
-from django.db import OperationalError, connection
+from django.db import Error, connection
+from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -9,7 +10,9 @@ def health(request):
     try:
         with connection.cursor() as cursor:
             cursor.execute('SELECT 1')
-        database = 'connected'
-    except OperationalError:
-        database = 'unavailable'
-    return Response({'status': 'ok', 'database': database})
+    except Error:
+        return Response(
+            {'status': 'error', 'database': 'unavailable'},
+            status=status.HTTP_503_SERVICE_UNAVAILABLE,
+        )
+    return Response({'status': 'ok', 'database': 'connected'})

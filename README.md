@@ -28,7 +28,7 @@ A small news portal with a Django REST API, a PostgreSQL database and a React fr
 4. Install the frontend:
 
    ```powershell
-   cd frontend
+   cd ..\frontend
    npm install
    ```
 
