@@ -1,12 +1,16 @@
+import collections
 import datetime
 import io
+import json
 import tempfile
 import uuid
 
 from django.contrib.admin.models import LogEntry
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import Group, Permission
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.test import TestCase
+from django.core.management import call_command
+from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 from PIL import Image
 from rest_framework.test import APIClient, APITestCase
@@ -23,6 +27,7 @@ from .models import (
     User,
     UserTag,
 )
+from .management.commands.seed_data import ACCOUNTS, ARTICLES_FILE, DEMO_PASSWORD
 from .roles import CONTENT_MANAGER, DATA_SEO, MODERATOR, STAFF_ROLES, SUPER_ADMIN
 from .search import search_documents
 
@@ -1244,3 +1249,119 @@ class AnalyticsNumbersTests(TestCase):
             list(after['zero_result_queries']), [{'query': 'nothing-here', 'total': 1}]
         )
         self.assertEqual(after['most_clicked'][0], document)
+
+
+class ArticlesFileTests(SimpleTestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.articles = json.loads(ARTICLES_FILE.read_text(encoding='utf-8'))
+
+    def test_has_100_articles_across_six_categories(self):
+        self.assertEqual(len(self.articles), 100)
+        categories = collections.Counter(a['category'] for a in self.articles)
+        self.assertEqual(len(categories), 6)
+
+    def test_every_article_is_150_to_300_words(self):
+        for article in self.articles:
+            with self.subTest(title=article['title']):
+                words = len(' '.join(article['paragraphs']).split())
+                self.assertTrue(150 <= words <= 300, words)
+
+    def test_every_article_has_a_summary_and_tags(self):
+        for article in self.articles:
+            with self.subTest(title=article['title']):
+                self.assertTrue(article['summary'])
+                self.assertTrue(article['tags'])
+
+    def test_titles_are_unique(self):
+        titles = [a['title'] for a in self.articles]
+        self.assertEqual(len(titles), len(set(titles)))
+
+    def test_no_placeholder_text(self):
+        text = ARTICLES_FILE.read_text(encoding='utf-8').lower()
+        self.assertNotIn('lorem', text)
+        self.assertNotIn('ipsum', text)
+
+
+class SeedDataTests(TestCase):
+    def counts(self):
+        models = (
+            Category, Comment, Document, Like, Report, SearchClickLog,
+            SiteSetting, Tag, User, UserTag,
+        )
+        return {model.__name__: model.objects.count() for model in models}
+
+    def seed(self):
+        call_command('seed_data', stdout=io.StringIO())
+
+    def setUp(self):
+        media = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
+        self.addCleanup(media.cleanup)
+        override = self.settings(MEDIA_ROOT=media.name)
+        override.enable()
+        self.addCleanup(override.disable)
+
+    def test_loads_everything_and_a_rerun_adds_nothing(self):
+        self.seed()
+        first = self.counts()
+        self.assertEqual(first['Document'], 100)
+        self.assertEqual(first['Category'], 6)
+        self.assertEqual(first['User'], 6)
+        self.assertGreater(first['Comment'], 50)
+        self.assertGreater(first['Like'], 50)
+        self.assertGreater(first['UserTag'], 0)
+        self.assertEqual(first['Report'], 5)
+        self.assertGreater(first['SearchClickLog'], 50)
+
+        comment = Comment.objects.first()
+        Comment.objects.filter(pk=comment.pk).update(status=Comment.Status.HIDDEN)
+        self.seed()
+        self.assertEqual(self.counts(), first)
+        comment.refresh_from_db()
+        self.assertEqual(comment.status, Comment.Status.HIDDEN)
+
+    def test_accounts_have_their_roles_and_demo_password(self):
+        self.seed()
+        for username, _, role in ACCOUNTS:
+            with self.subTest(username=username):
+                user = authenticate(username=username, password=DEMO_PASSWORD)
+                self.assertIsNotNone(user)
+                self.assertEqual(user.is_staff, role is not None)
+                self.assertEqual(
+                    list(user.groups.values_list('name', flat=True)), [role] if role else []
+                )
+
+    def test_documents_are_clean_and_complete(self):
+        self.seed()
+        self.assertGreaterEqual(Document.objects.filter(status='published').count(), 50)
+        self.assertTrue(Document.objects.filter(status='draft').exists())
+        self.assertTrue(Document.objects.filter(status='unpublished').exists())
+        for document in Document.objects.all():
+            with self.subTest(slug=document.slug):
+                self.assertTrue(document.content_text)
+                self.assertNotIn('<', document.content_text)
+                self.assertTrue(document.summary)
+                self.assertTrue(document.image)
+                self.assertTrue(document.image_alt)
+                self.assertTrue(document.tags.exists())
+                self.assertEqual(document.status == 'draft', document.published_at is None)
+
+    def test_rerun_draws_banners_that_went_missing(self):
+        self.seed()
+        document = Document.objects.first()
+        document.image.storage.delete(document.image.name)
+        self.seed()
+        document.refresh_from_db()
+        self.assertTrue(document.image.storage.exists(document.image.name))
+
+    def test_search_logs_fill_the_dashboard(self):
+        self.seed()
+        self.client.force_login(User.objects.get(username='seo'))
+        context = self.client.get(reverse('analytics')).context
+        self.assertGreater(context['total_views'], 0)
+        self.assertEqual(context['top_queries'][0]['query'], 'harbour')
+        self.assertEqual(context['top_queries'][0]['total'], 12)
+        zero = {row['query'] for row in context['zero_result_queries']}
+        self.assertEqual(zero, {'time machine', 'moon base', 'dragon sightings'})
+        self.assertTrue(context['most_clicked'])

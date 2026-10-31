@@ -1,0 +1,1398 @@
+[
+ {
+  "category": "Technology",
+  "title": "Port Alder Library Lends Out Laptops to Close the Homework Gap",
+  "tags": [
+   "Education",
+   "Community"
+  ],
+  "summary": "A new loan scheme lets students borrow laptops and internet hotspots for a full school term.",
+  "paragraphs": [
+   "The Port Alder Public Library has started lending laptops and portable internet hotspots to students who have no reliable connection at home. The scheme began this month with sixty devices, paid for by a local charity and a small grant from the town council. Students can borrow a laptop for a full term by showing a library card and a note from their school.",
+   "Head librarian Nadia Osei said the idea came from watching teenagers sit on the front steps after closing time to use the building's wireless signal. “We kept seeing the same faces outside in the rain,” she said. “Homework has moved online, but not every home has moved with it.” Staff will reset each machine between loans so that no personal files are passed on.",
+   "Teachers at two secondary schools have welcomed the programme, saying late assignments have already begun to fall. The library plans to review the first term in December. If demand stays high, it hopes to add another forty laptops next year and to offer Saturday classes for parents who want to learn the basics."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Small Clinics Turn to Shared Software to Fight Ransomware",
+  "tags": [
+   "Cybersecurity",
+   "Public Health"
+  ],
+  "summary": "Rural clinics are pooling money for managed security after a neighbouring practice was locked out of its records.",
+  "paragraphs": [
+   "A group of eleven rural clinics in the Verrin Valley has agreed to share one security provider after a nearby practice lost access to its patient records for nine days. The attack on the practice encrypted its files and demanded payment. Staff returned to paper charts while backups were restored, delaying routine appointments across the district.",
+   "Dr. Tomas Halloran, who chairs the new group, said no single clinic could afford a full-time specialist. “We are doctors and receptionists, not security engineers,” he said. “Together we can pay for monitoring that none of us could buy alone.” The contract covers automatic updates, staff training and daily offline backups, which are tested each month.",
+   "Analysts say smaller health providers are attractive targets because they hold sensitive data but often run older systems. The group will meet every quarter to compare incidents and share warnings. Its first training session, held on Tuesday evening, showed receptionists how to spot convincing fake emails, which remain the most common way for attackers to get inside a network."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Students Build Flood Sensors From Spare Parts",
+  "tags": [
+   "Education",
+   "Climate"
+  ],
+  "summary": "A school robotics club has built low-cost river sensors that send warnings to a public web page.",
+  "paragraphs": [
+   "A robotics club at Northgate High School has built a set of low-cost flood sensors from spare parts and placed them along the Brede River. Each device measures the water level with an ultrasonic sensor and sends a reading to a public web page every fifteen minutes. The students spent less than forty dollars on each unit.",
+   "The project began after heavy rain flooded the school's sports field last spring. Sixteen-year-old club captain Lena Marsh said the group wanted to give residents earlier warning. “The official gauge is eleven kilometres downstream,” she said. “By the time it rises, our street is already wet.” The club tested waterproof casings in a bathtub before installing them on footbridges.",
+   "The county's emergency office has agreed to review the data alongside its own readings. Officials stressed that the sensors do not replace official warnings, but said the extra detail could help crews decide where to send sandbags. The students are now writing a guide so that other schools can copy the design, including wiring diagrams and a simple parts list."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "City Tests Smart Traffic Lights on Busy Harbour Road",
+  "tags": [
+   "Transport",
+   "Artificial Intelligence"
+  ],
+  "summary": "Cameras that count vehicles will adjust signal timing along one of the city's most congested streets.",
+  "paragraphs": [
+   "Traffic engineers in Calder Bay have begun a six-month trial of adaptive signals along Harbour Road, one of the city's most congested streets. Instead of running on fixed timers, fourteen junctions will adjust their green phases according to the number of vehicles, cyclists and pedestrians waiting. The system counts road users with cameras but does not record faces or number plates, officials said.",
+   "Project lead Imani Clarke said early simulations suggested peak journey times could fall by about twelve percent. “Right now a driver can sit at a red light with nothing crossing,” she said. “That wastes fuel and patience.” Buses that are running late will also receive slightly longer green lights, a feature requested by the regional transit operator.",
+   "Some residents have asked for stronger guarantees about privacy, and the council has promised to publish an independent review of the camera software. Cycling groups want to make sure longer green phases for cars do not shorten crossing times. The council will decide next spring whether to extend the system across the whole central district."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Language App Helps Grandparents Teach an Endangered Dialect",
+  "tags": [
+   "Education",
+   "Artificial Intelligence"
+  ],
+  "summary": "Volunteers are recording elders so that young people can learn a coastal dialect on their phones.",
+  "paragraphs": [
+   "A free phone app is helping young people on the Sorrel Islands learn a dialect that fewer than two thousand residents still speak fluently. The app, built by volunteers with a university linguistics department, is based on hundreds of hours of recordings made with island elders. Learners hear real voices rather than synthetic speech and can repeat phrases at their own pace.",
+   "Retired fisherman Anders Vik, eighty-one, recorded more than three thousand words, many connected with tides, weather and boats. “Some of these words have no translation,” he said. “If nobody says them, they are gone.” Speech software compares a learner's attempt with the recording and suggests which sound to practise, although developers say the feedback is only a guide.",
+   "Local schools have begun using the lessons once a week, and more than nine hundred people have downloaded the app since April. The team stores all recordings under the control of an island committee, so that the community decides how they are used. The next update will add short conversations recorded at the harbour and the weekly market."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Farmers Use Cheap Drones to Spot Thirsty Crops",
+  "tags": [
+   "Agriculture",
+   "Artificial Intelligence"
+  ],
+  "summary": "A cooperative is sharing one drone and analysis tool to reduce water use during dry months.",
+  "paragraphs": [
+   "A cooperative of twenty-three vegetable farmers near Lake Verrin is sharing a single camera drone to work out which fields need water most urgently. The drone flies over each farm once a week, and software turns its images into a colour map that highlights stressed plants. Farmers can then irrigate only the affected rows instead of watering whole fields.",
+   "Grower Maria Fenn said the map showed a blocked pipe she had not noticed for days. “The field looked fine from the road,” she said. “From above there was a yellow stripe as clear as paint.” During a trial last summer, the group reduced its water use by about a fifth without any measurable fall in harvest weight.",
+   "The cooperative paid for the equipment with a regional drought grant, and one member's daughter trained as the licensed pilot. Agricultural advisers caution that results vary with soil and crop type. Even so, neighbouring groups have begun asking to visit. The cooperative plans to publish its season's figures so that other farmers can judge the costs and benefits for themselves."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Town Replaces Paper Parking Permits With a Simple Text Message",
+  "tags": [
+   "Transport",
+   "Community"
+  ],
+  "summary": "Residents can now renew parking permits by text, ending long queues at the town hall.",
+  "paragraphs": [
+   "Residents of Eastbrook no longer have to queue at the town hall to renew their parking permits. Since the start of the month, drivers have been able to send a text message with their permit number and pay through a secure link. Council staff say the change came from a long list of complaints about lost forms and limited opening hours.",
+   "The new service was built by the council's own two-person digital team, not an outside supplier. Developer Rohan Pillai said they kept it deliberately plain. “Older residents told us they would not install another app,” he said. “Everyone already knows how to send a text.” Anyone who prefers the old way can still visit the front desk during office hours.",
+   "About a third of permits were renewed by text in the first two weeks, and queues at the front desk have shortened noticeably. Wardens check permits using a handheld device that reads the registration plate. The council estimates that the project will pay for itself within two years through lower printing and postage costs, and it may extend the system to market stall licences."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Open-Source Weather Station Network Spreads Across Hill Villages",
+  "tags": [
+   "Climate",
+   "Community"
+  ],
+  "summary": "Volunteers have linked forty home-built weather stations to improve forecasts for remote valleys.",
+  "paragraphs": [
+   "Forty home-built weather stations now report conditions from villages across the Tarn Hills, filling gaps left by the nearest official station more than sixty kilometres away. The network began as a hobby project by a retired telecoms engineer, who published his designs online so that neighbours could build their own for about the price of a good pair of boots.",
+   "Founder Graham Elwood said the hills create local weather that national forecasts often miss. “It can be dry in one valley and flooding in the next,” he said. “Farmers wanted to know what was happening over the ridge, not in the city.” Each station measures rainfall, wind and temperature, and uploads readings by a low-power radio link.",
+   "A university meteorology group has started comparing the data with its forecast models and says the rainfall readings are surprisingly consistent after simple calibration. Volunteers visit each station twice a year to clean the gauges. The network has also proved useful for hill walkers and school science classes, and organisers hope to reach one hundred stations before the end of next year."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Night School Teaches Basic Coding to Bus Drivers and Care Workers",
+  "tags": [
+   "Education",
+   "Small Business"
+  ],
+  "summary": "An evening course aimed at shift workers has a waiting list after its first term.",
+  "paragraphs": [
+   "An evening course at Calder Bay Community College is teaching basic programming to people who never expected to write a line of code. The first class of twenty-four included bus drivers, care workers and a baker, most of whom work irregular shifts. Lessons are recorded so that anyone who misses a session because of work can catch up before the next one.",
+   "Instructor Priya Raman said she avoids abstract exercises. “We start with something annoying in your own life,” she said. “One student wrote a script to sort her rota. Another built a price list for his brother's garage.” Students pay a small fee, with the remainder covered by a regional fund for adult skills.",
+   "Not everyone is planning a career change. Many said they simply wanted to stop feeling left out of a world that runs on software. Even so, two graduates have already moved into junior support roles at local firms. The college has opened a second class for next term and says its waiting list has grown to more than eighty names."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Museum Scans Fragile Ship Logs So Anyone Can Read Them",
+  "tags": [
+   "Books",
+   "Community"
+  ],
+  "summary": "Volunteers are digitising two centuries of harbour records that were too delicate to handle.",
+  "paragraphs": [
+   "The Maritime Museum in Port Alder is scanning two centuries of ship logs that have become too fragile for visitors to handle. Using a custom cradle that holds each volume gently open, volunteers photograph about four hundred pages a day. The images are being published online, where anyone can search them by ship name, date and port of call.",
+   "Curator Yusuf Demir said the handwriting has been the hardest part. Software can read about seven in ten words correctly, so volunteers around the world are checking the transcriptions. “We have a retired nurse in another country correcting the spelling of our captains,” he said. “She has become an expert on the weather of 1840.”",
+   "The logs are already proving useful beyond local history. Climate researchers have asked for the daily wind and temperature records, which stretch back far earlier than official measurements in the region. Families have also found traces of ancestors listed among the crews. The museum expects the work to take three more years and is looking for volunteers who enjoy careful reading."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Solar Charging Lockers Arrive at Weekly Farmers' Market",
+  "tags": [
+   "Energy",
+   "Small Business"
+  ],
+  "summary": "Stallholders can now take card payments all day thanks to a small solar-powered charging station.",
+  "paragraphs": [
+   "Stallholders at the Eastbrook Saturday market no longer need to worry about their card readers running out of power by lunchtime. A small solar-powered charging station with twelve lockable compartments was installed beside the market cross last month. The project was paid for by the traders' association, which raised most of the money through a raffle and a summer food festival.",
+   "Cheese seller Hannah Boyd said a dead card reader once cost her half a day's trade. “People do not carry cash any more,” she said. “If the machine stops, they simply walk on.” Each compartment locks with a four-digit code, so traders can leave phones and readers charging while they serve customers.",
+   "The station's panels were designed by engineering students at the local technical college, who also fitted a battery so that it works on cloudy mornings. Shoppers are welcome to use any free locker. The association says the station has proved so popular that it may buy a second one, and that other market towns have already called to ask how it was done."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Hospital Volunteers Use Tablets to Connect Isolated Patients",
+  "tags": [
+   "Public Health",
+   "Mental Health"
+  ],
+  "summary": "A simple video-calling project is helping long-stay patients stay in touch with their families.",
+  "paragraphs": [
+   "Volunteers at St. Brigid's Hospital in Calder Bay are using donated tablets to help long-stay patients speak with family members who cannot visit. The project began on the stroke ward, where some patients struggled to use phones. Volunteers set up each call, hold the tablet if needed and sit nearby in case the patient becomes tired or upset.",
+   "Ward sister Olivia Mensah said the effect has been easy to see. “We had a gentleman who had barely spoken in days,” she said. “His granddaughter appeared on the screen, and suddenly he was telling stories.” Tablets are wiped between patients, and no calls are recorded. Staff arrange times around meals, therapy sessions and medication rounds.",
+   "The hospital now plans to extend the service to three more wards. Researchers from a nearby university will interview patients and families to learn whether regular contact affects mood or recovery. A local phone shop has donated twenty protective cases, and the hospital's volunteer office says it is recruiting people who can spare two hours a week and enjoy listening."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Regional Bank Warns of Convincing Voice Scams",
+  "tags": [
+   "Cybersecurity",
+   "Artificial Intelligence"
+  ],
+  "summary": "Criminals are using cloned voices to pose as relatives, and customers are urged to agree a family code word.",
+  "paragraphs": [
+   "Northgate Savings Bank has warned customers about phone scams that use cloned voices to imitate relatives. In the past three months, staff have stopped eleven suspicious transfers after older customers said a grandchild had called in distress. In each case, the voice sounded real, but the relative was at home and had made no such call.",
+   "Fraud manager Lucia Ferrante said only a few seconds of audio from a social media video can be enough to create a passable copy. “The criminals rely on panic,” she said. “They want you to act before you have time to think.” The bank recommends that families agree on a private code word and hang up and call back on a known number.",
+   "Tellers have been trained to ask gentle questions when a customer tries to withdraw an unusual sum in a hurry. The bank is also holding free talks at community centres this autumn. Police urge anyone who receives such a call to report it, even if no money was lost, because the details can help investigators trace organised groups."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Repair Café Keeps Old Computers Out of the Landfill",
+  "tags": [
+   "Community",
+   "Climate"
+  ],
+  "summary": "Monthly volunteer sessions have rescued more than three hundred machines in a single year.",
+  "paragraphs": [
+   "Once a month, the hall at Eastbrook Methodist Church fills with people carrying broken laptops, printers and desktop computers. The Repair Café, run by volunteers, has fixed more than three hundred machines in its first year. Visitors sit beside the repairer and watch the work, so they can learn how to deal with small problems themselves next time.",
+   "Volunteer Dmitri Volkov, a retired technician, said many machines only need a new battery, a clean fan or a fresh operating system. “People assume it is finished because it is slow,” he said. “Most of the time it only needs a little attention.” Coffee is free, and donations cover the cost of spare parts.",
+   "The group gives computers that nobody claims to families who need them, after wiping every drive. Council waste officers say electronic waste is among the fastest-growing problems at the local recycling centre, and they have offered to promote the sessions. The organisers now want to train younger volunteers, because several of the most skilled members have told them they are nearing eighty."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "New Accessibility Rules Push Councils to Rewrite Their Websites",
+  "tags": [
+   "Education",
+   "Community"
+  ],
+  "summary": "Clearer language and screen-reader support are being added after complaints from disabled residents.",
+  "paragraphs": [
+   "Local councils across the region are rewriting their websites after new guidance said public services must work properly with screen readers and keyboard navigation. Campaigners have long complained that vital forms, including those for housing support and bin collections, could not be completed by blind residents or people with limited use of their hands.",
+   "Web officer Amara Nwosu of Calder Bay council said her team tested the site with a group of disabled residents and found dozens of problems in the first afternoon. “We had a beautiful page that nobody with a screen reader could use,” she said. “That was a very humbling hour.” The fixes include clearer headings, proper form labels and shorter sentences.",
+   "Officials say plain language has helped everybody, with calls to the housing helpline falling after the changes went live. Campaign group Open Doors welcomed the progress but warned that documents published as scanned images remain a barrier. The council has promised a full audit of those files by next summer and says disabled residents will be paid to test the results."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Startup Turns Used Electric Bike Batteries Into Home Storage",
+  "tags": [
+   "Startups",
+   "Energy"
+  ],
+  "summary": "A two-year-old company is giving worn bike batteries a second life as household power packs.",
+  "paragraphs": [
+   "A two-year-old company in Northgate is collecting worn electric bike batteries and rebuilding them into small home storage units. Founders Sofia Lindqvist and Kwame Boateng started the business in a borrowed garage after learning how many packs are discarded when their capacity falls too low for commuting, even though they can still hold a useful charge.",
+   "Each returned pack is tested cell by cell, and only healthy cells are reused. “A battery that is tired for a bicycle is perfectly fine for keeping the lights on,” said Lindqvist. The units are aimed at households with rooftop solar panels and can store enough power for an evening of lighting, charging and a small fridge.",
+   "The company recently passed an independent safety inspection and has signed agreements with four bike repair shops. It now employs nine people and has begun talks with a regional housing association. Some experts caution that reused batteries need careful monitoring over time. The founders say every unit comes with a remote health check and a promise to take it back for recycling."
+  ]
+ },
+ {
+  "category": "Technology",
+  "title": "Teachers Draw Up Classroom Rules for AI Homework Helpers",
+  "tags": [
+   "Education",
+   "Artificial Intelligence"
+  ],
+  "summary": "A district's new policy asks students to show their working and explain how they used chatbots.",
+  "paragraphs": [
+   "Teachers in the Brede School District have agreed on new rules for the use of artificial intelligence in homework, after a year of uncertainty about what counts as cheating. Rather than banning chatbots outright, the policy asks students to state when they used one, keep their drafts and be ready to explain their reasoning in class.",
+   "English teacher Samuel Okafor helped write the guidelines. “A ban would only have taught students to hide it,” he said. “We want them to treat these tools like a calculator with a habit of making things up.” Younger pupils will continue to do most written work by hand, particularly when they are learning to form arguments.",
+   "Parents raised concerns at a public meeting that wealthier families could buy better tools. The district responded by promising equal access through school accounts, with data protections in place. Teachers will collect examples of good and poor use over the coming year, and the policy will be reviewed next summer with the help of a panel of students from each secondary school."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Family Bakery Opens Third Shop Despite Rising Flour Prices",
+  "tags": [
+   "Small Business",
+   "Community"
+  ],
+  "summary": "A fourth-generation bakery is expanding by selling less bread at a time and wasting far less of it.",
+  "paragraphs": [
+   "Harlow's Bakery, a family business that has operated in Eastbrook for four generations, opened its third shop this week even as flour and energy prices continue to squeeze small food producers. Owner Beth Harlow said the expansion has been possible because the business has cut waste sharply by baking smaller batches several times a day.",
+   "“My grandfather would fill the window at six in the morning and hope for the best,” she said. “Now we look at what sold last Tuesday and bake to match.” The shop tracks daily sales in a simple spreadsheet, and any unsold loaves go to a local food bank before closing time.",
+   "The new branch has created seven jobs, including two apprenticeships for school leavers. Trade group representatives say small bakers are under severe pressure and warn that many are closing rather than growing. Harlow admits margins remain thin and that she has raised the price of a loaf twice this year. Customers, she says, have mostly understood, particularly when they can see the ovens from the counter."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Port Alder Container Terminal Reports Record Quarter",
+  "tags": [
+   "Markets",
+   "Transport"
+  ],
+  "summary": "Shipping volumes rose by a tenth as firms moved cargo away from more congested ports.",
+  "paragraphs": [
+   "The container terminal at Port Alder handled a record volume of cargo in the third quarter, its operator said on Monday. The total rose by about a tenth compared with the same period last year, helped by shipping lines that moved some services away from larger, more congested ports further along the coast.",
+   "Chief executive Fiona Strand said the investment in two new cranes had paid off sooner than expected. “Customers want reliability above everything,” she said. “A ship that waits for three days costs far more than a slightly longer route.” The terminal also extended its opening hours for lorries, which has reduced queues on the approach road.",
+   "Local haulage firms welcomed the extra business, although residents in nearby streets have complained about noise and traffic at night. The operator says it is studying a rail link to move more containers off the roads. Analysts warned that one strong quarter does not guarantee a lasting trend, since freight volumes tend to swing with consumer demand and international shipping rates."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Credit Union Offers Fair Loans to Self-Employed Tradespeople",
+  "tags": [
+   "Small Business",
+   "Markets"
+  ],
+  "summary": "A new loan aimed at plumbers, electricians and other sole traders uses bank statements instead of payslips.",
+  "paragraphs": [
+   "The Verrin Valley Credit Union has launched a loan designed for self-employed tradespeople who often struggle to borrow from high-street banks. Applicants can use twelve months of bank statements in place of payslips, and loans of up to fifteen thousand dollars can be used to buy vans, tools or stock. Interest is fixed for the life of the loan.",
+   "Manager Joanne Whitlock said the idea came from members who were being turned away despite running healthy businesses. “A plumber with a full diary can look risky to a computer,” she said. “We sit down and look at the actual work coming in.” Each application is reviewed by a loan officer rather than decided automatically.",
+   "Electrician Ben Adeyemi used his loan to replace a van that had failed its safety inspection. “Without it, I would have stopped working for a month,” he said. The credit union expects to issue about two hundred such loans in its first year. Regulators have praised community lenders for serving these customers but remind members to compare the total cost before borrowing."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Empty Department Store Reborn as a Market for Local Makers",
+  "tags": [
+   "Small Business",
+   "Housing"
+  ],
+  "summary": "A building left vacant for six years now hosts forty small traders, with flats planned above.",
+  "paragraphs": [
+   "The old Marlowe's department store in central Calder Bay, empty for six years, has reopened as an indoor market for local makers. Forty small traders now rent stalls on the ground floor, selling everything from ceramics to hot sauce. Rents are charged weekly, which allows new businesses to test an idea without signing a long lease.",
+   "Developer Niamh Brennan said the building was too large for any single retailer. “Nobody wants sixty thousand square feet of shop any more,” she said. “But forty people each want a small corner of it.” The upper floors will be converted into twenty-eight flats next year, about a third of which will be let at reduced rents.",
+   "Footfall on the surrounding street has risen since the opening, according to the town centre partnership, and two nearby cafés have extended their hours. Some long-established shopkeepers worry about competition. The council sees the project as a model for other vacant buildings, and has asked planners to look at how similar conversions could be approved more quickly in future."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Fishing Cooperative Sells Directly to Restaurants Through Weekly Text",
+  "tags": [
+   "Small Business",
+   "Agriculture"
+  ],
+  "summary": "Skippers are bypassing the auction and earning more by telling chefs what has been landed.",
+  "paragraphs": [
+   "A cooperative of twelve small fishing boats in Sorrel Harbour has begun selling straight to restaurants, bypassing the regional auction. Every morning, the boats send a text message listing what they expect to land, and chefs reply with their orders before the catch reaches the quay. The cooperative says skippers are earning about a quarter more per kilogram.",
+   "Skipper Erik Sandvik, whose family has fished these waters for ninety years, said the change has altered his working day. “I used to find out what my fish were worth after I had sold them,” he said. “Now I know before I tie up.” Chefs say the fish arrive fresher and that they can plan menus around species they rarely saw before.",
+   "The arrangement has its limits. Bad weather can leave restaurants short, and the volumes are far too small to replace the auction entirely. The cooperative has hired a part-time coordinator and bought a refrigerated van. Regulators have confirmed that every landing is still recorded, and the group hopes to add a weekly box scheme for households next year."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Regional Airline Adds Route to Revive Island Tourism",
+  "tags": [
+   "Transport",
+   "Markets"
+  ],
+  "summary": "A new summer service to the Sorrel Islands is backed by a council guarantee on ticket sales.",
+  "paragraphs": [
+   "A regional airline will begin flying between Calder Bay and the Sorrel Islands next summer, restoring a link that was cut five years ago. The twice-weekly service is supported by an agreement under which island councils will cover part of the cost if seats go unsold. Tickets go on sale in January, with fares comparable to the existing ferry and rail journey.",
+   "Hotel owner Greta Holm said the loss of the old route had been a heavy blow. “Visitors with only a long weekend stopped coming,” she said. “A seven-hour trip each way is too much for them.” The tourist board expects the service to bring about four thousand additional visitors in its first season.",
+   "Not everyone is pleased. Environmental campaigners argue that public money should go towards improving ferries rather than flights. The islands' councils say the guarantee is limited to three years and will be reviewed against passenger numbers. The airline, meanwhile, says it is studying whether smaller hybrid aircraft could one day serve short routes like this one at lower cost."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Local Brewery Becomes Employee-Owned After Founder Retires",
+  "tags": [
+   "Small Business",
+   "Community"
+  ],
+  "summary": "The founder of a thirty-year-old brewery has sold it to a trust owned by its staff.",
+  "paragraphs": [
+   "The founder of Tarn Valley Brewery has sold the business to its thirty-four employees rather than accept an offer from a national drinks group. Robert Lyle, who started brewing in a farm shed thirty years ago, transferred the company to an employee ownership trust last month. Staff will share in the profits, and the brewery's name and recipes will stay the same.",
+   "Lyle said he could have earned more from a sale to an outside buyer. “I have watched what happens when a local brewery is bought,” he said. “Within two years the taps are the same as everywhere else, and the jobs have gone.” The sale will be paid for gradually from future profits over ten years.",
+   "Head brewer Chidi Eze said the mood at the site has been cheerful but serious. “We now own it, so the leaking roof is our problem,” he joked. A staff council will elect two members to the board. Advisers say employee ownership is growing among small firms whose founders have no obvious successor, although the model still depends on strong trading."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Shoppers Trade Down as Supermarket Own Brands Gain Ground",
+  "tags": [
+   "Markets",
+   "Nutrition"
+  ],
+  "summary": "Regional grocery figures show customers are comparing prices more carefully than a year ago.",
+  "paragraphs": [
+   "Shoppers across the region are switching to cheaper own-brand groceries, according to figures released this week by a retail research group. Own-label products accounted for just over half of supermarket sales in the past three months, the highest share since records began. Pasta, tinned vegetables and household cleaners saw the largest shift away from branded goods.",
+   "Analyst Clara Jensen said the change appears to be lasting. “Many customers tried the cheaper version because they had to,” she said. “Now they have decided it is good enough, and they are not going back.” Discount chains have continued to gain customers, while traditional stores have responded by advertising price cuts and loyalty offers.",
+   "Food banks report that demand remains high, even though price rises have slowed from last year's peak. Nutrition campaigners warn that low-income households may cut back on fresh produce first, and they want supermarkets to offer better prices on fruit and vegetables. Retailers say they are working to absorb costs but add that wages, energy and transport bills all remain high."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Young Entrepreneurs Pitch Ideas at Calder Bay Startup Weekend",
+  "tags": [
+   "Startups",
+   "Education"
+  ],
+  "summary": "A delivery service for pharmacies won top prize at a weekend event for first-time founders.",
+  "paragraphs": [
+   "A service that delivers prescriptions to housebound patients by electric cargo bike won first prize at Calder Bay's annual startup weekend, beating thirty-one other entries. The event, held in a converted warehouse, gives first-time founders fifty-four hours to shape an idea, build a simple prototype and present it to a panel of local investors and business owners.",
+   "The winning team, led by pharmacy student Aisha Rahman, had spent Saturday morning calling local chemists to ask whether the idea was wanted. “Ten of the twelve said yes straight away,” she said. “That was the moment we stopped being nervous.” The team receives a small grant and six months of free desk space.",
+   "Other entries included an app for sharing garden tools and a booking system for community halls. Organisers say the prize matters less than the contacts made during the weekend. About one in five teams from past events is still trading. Judge Marcus Cole advised the competitors to spend more time talking to potential customers and less time worrying about the design of their logos."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Rail Freight Yard Reopens, Bringing Forty Jobs to Northgate",
+  "tags": [
+   "Transport",
+   "Markets"
+  ],
+  "summary": "A disused yard is back in business as timber and building materials shift from road to rail.",
+  "paragraphs": [
+   "A rail freight yard in Northgate that closed nearly twenty years ago has reopened, bringing forty jobs to the area and taking an estimated thirty lorries a day off local roads. The site now handles timber and building materials arriving by train from the north, which are then loaded on to smaller vehicles for delivery across the county.",
+   "Operator Laura Finch said rising fuel costs and a shortage of lorry drivers had made rail competitive again. “Ten years ago, nobody would even take the call,” she said. “Now customers are ringing us.” The company spent eighteen months repairing track and overhead lighting, with a contribution from a regional transport fund.",
+   "Residents living alongside the line have been promised limits on night-time movements and regular noise checks. The town's mayor described the reopening as a rare piece of good economic news for an area that has lost many manufacturing jobs. Union officials welcomed the positions, most of which are permanent, and have begun talks with the company about training apprentices for signalling work."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Coffee Roaster Pays Farmers Above Market After Price Slump",
+  "tags": [
+   "Small Business",
+   "Agriculture"
+  ],
+  "summary": "A small roaster publishes exactly what it pays growers, inviting customers to check its claims.",
+  "paragraphs": [
+   "A small coffee roaster in Port Alder has begun printing the price it pays growers on every bag, in an effort to prove its claims about fair trading. Founder Tessa Moreau said she became frustrated by vague labels and wanted customers to see the actual figures, including shipping, roasting costs and the shop's own margin.",
+   "“Everyone says their coffee is ethical,” she said. “So I thought, fine, let us show the receipts.” The company buys directly from three small cooperatives and pays roughly double the recent commodity price. A bag costs a little more than those at the supermarket, but sales have grown steadily since the labels appeared.",
+   "Trade specialists say price transparency is still unusual, partly because firms do not want to reveal their margins to competitors. They add that one small roaster cannot change a global market, though its example has attracted attention from several larger buyers. Moreau says she expects to be copied and would be delighted if that happened, since the growers would benefit regardless of who sold the coffee."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "High Street Vacancy Rate Falls for First Time in Five Years",
+  "tags": [
+   "Markets",
+   "Small Business"
+  ],
+  "summary": "Lower rents and flexible leases are drawing independent traders back into town centres.",
+  "paragraphs": [
+   "The proportion of empty shops in the region's town centres has fallen for the first time in five years, according to new figures from the chamber of commerce. About one in eight units is now vacant, down slightly from last year. Independent businesses accounted for nearly all the new openings, with cafés, barbers and repair shops among the most common.",
+   "Chamber president Daniel Asante said landlords have become more realistic. “Rents came down because the alternative was an empty unit,” he said. “Some owners have also accepted shorter leases, which is what a new trader needs.” Several councils have offered modest grants towards shop fronts and removed parking charges during quiet periods.",
+   "Economists urged caution, noting that the change is small and that many new businesses close within three years. Larger chains continue to reduce their presence, and online shopping remains strong. Still, traders in Eastbrook said they could feel the difference. Bookshop owner Ruth Gallagher said it had been years since she last had to learn the names of three new neighbours in one summer."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Construction Firms Compete for Apprentices Amid Skills Shortage",
+  "tags": [
+   "Housing",
+   "Education"
+  ],
+  "summary": "Builders are offering higher starting pay as older workers retire faster than they can be replaced.",
+  "paragraphs": [
+   "Construction companies across the county are offering higher wages and guaranteed training to attract apprentices, as a wave of retirements leaves building sites short of skilled workers. Industry figures suggest that nearly a third of bricklayers and plasterers in the region are over fifty-five. Employers warn that housing targets could slip unless more young people enter the trades.",
+   "Site manager Patrick Doyle said firms are now visiting schools in a way that he never saw earlier in his career. “When I started, you turned up and hoped,” he said. “Now we are selling this job to sixteen-year-olds and to their parents.” Starting pay has risen about twelve percent in two years.",
+   "Calder Bay Community College has opened an additional bricklaying workshop and reports record applications, including more women than ever before, although they remain a small minority. Careers advisers say many teenagers still see the trades as a second choice. The college plans to invite former apprentices back to speak in classrooms, showing students how some have gone on to run their own businesses."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Dairy Farmers Band Together to Sell Their Own Cheese",
+  "tags": [
+   "Agriculture",
+   "Small Business"
+  ],
+  "summary": "Facing low milk prices, six family farms have opened a shared creamery in the Tarn Hills.",
+  "paragraphs": [
+   "Six dairy farms in the Tarn Hills have opened a shared creamery, aiming to earn more from their milk by turning it into cheese and yoghurt. The families pooled savings and a rural development grant to convert an old barn. For decades, each had sold raw milk to a large processor at a price that barely covered their costs.",
+   "Farmer Isla Macrae said the decision was prompted by a difficult winter. “We were working harder every year for less money,” she said. “Sitting around a kitchen table one night, we asked why someone else was making all the profit from our milk.” The group hired a cheesemaker who trained in the mountains further south.",
+   "The first aged cheese went on sale last month at markets and in nearby shops, and orders have exceeded the creamery's early expectations. Yet the group remains cautious, because the project has large debts and depends on keeping costs down. Advisers say that shared processing can help small farms survive, but only if the members can agree on quality, pricing and how to share the workload."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Regional Budget Sets Aside Funds for Small Business Energy Upgrades",
+  "tags": [
+   "Energy",
+   "Small Business"
+  ],
+  "summary": "Councillors approved grants for insulation and efficient equipment, but opposition members call them too small.",
+  "paragraphs": [
+   "Councillors in Verrin County have approved a budget that includes four million dollars in grants to help small businesses reduce their energy bills. Shops, workshops and restaurants will be able to apply for up to half the cost of insulation, efficient refrigeration or new heating systems. Applications are expected to open at the start of next year.",
+   "Finance chair Eleanor Vance said high bills have been among the most frequent complaints from local employers. “We hear it from the hairdresser and from the foundry alike,” she said. “If energy use falls, the savings stay in the local economy.” An independent adviser will visit each applicant and recommend the most cost-effective changes.",
+   "Opposition members argued that the sum is too small for a county of this size and said applications could be used up within months. The budget also includes extra money for road repairs and school transport, partly funded by a rise of just under three percent in property taxes. Councillors will publish a list of grant recipients every quarter so that residents can see where the money goes."
+  ]
+ },
+ {
+  "category": "Business",
+  "title": "Second-Hand Clothing Shop Grows Into a Regional Chain",
+  "tags": [
+   "Small Business",
+   "Climate"
+  ],
+  "summary": "What began as a charity table in a church hall now runs nine stores and employs sixty people.",
+  "paragraphs": [
+   "A second-hand clothing business that began as a table in a church hall now runs nine shops across the region and employs sixty people. Renew, founded by former fashion buyer Adaeze Obi, sells carefully sorted used clothes at prices that are lower than those of many fast-fashion chains. It opened its largest store yet in Northgate last Saturday.",
+   "Obi said the key has been treating donated clothes as a serious retail product. “We steam it, we fix the buttons, and we hang it properly,” she said. “Nobody should feel they are shopping in somebody's attic.” Clothes that cannot be sold are sent to a local mill that turns them into insulation.",
+   "Younger customers now make up more than half of sales, a sign, researchers say, of growing concern about the environmental cost of new clothing. Traditional charity shops have reported greater competition for good-quality donations. Obi says she wants to work with them rather than against them and has offered to share her sorting system with any charity that is interested in learning how it works."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Walking Group Helps Heart Patients Recover Together",
+  "tags": [
+   "Public Health",
+   "Community"
+  ],
+  "summary": "A weekly walk led by nurses has become a popular part of cardiac recovery in Calder Bay.",
+  "paragraphs": [
+   "Every Wednesday morning, about thirty people in bright jackets set off along the Calder Bay seafront at a gentle pace. All of them are recovering from heart problems. The walking group, led by two cardiac nurses, was set up to help patients keep exercising after their formal hospital rehabilitation programme ends, a stage when many people tend to lose motivation.",
+   "Retired postman Vincent Reilly joined three months after a heart attack. “I was frightened to walk to the shops,” he said. “Being with people who know how that feels made all the difference.” Nurses check each walker's breathing and pulse, and routes are planned with benches along the way and an easy option for those who tire.",
+   "Staff say attendance has been steady for two years, and a review found participants were more likely to keep up with their medication and appointments. The hospital now wants to start similar groups in two inland towns. Doctors stress that patients should follow individual medical advice, but they say the friendships formed along the promenade may be as valuable as the exercise."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "School Breakfast Club Reports Fewer Late Arrivals",
+  "tags": [
+   "Nutrition",
+   "Education"
+  ],
+  "summary": "A free morning meal at a primary school has improved punctuality and helped pupils settle into lessons.",
+  "paragraphs": [
+   "A free breakfast club at Brede Primary School has reduced the number of pupils arriving late by nearly a third, according to the school's first annual review. The club opens forty minutes before the bell and offers porridge, toast, fruit and milk to any child who wants it. Volunteers from a local church help staff serve about ninety children each morning.",
+   "Headteacher Rebecca Thorne said teachers noticed changes within weeks. “Children who used to spend the first hour of the day restless and tearful were ready to learn,” she said. “Hunger is a very quiet problem. They do not always tell you.” The club is open to everyone so that no child feels singled out.",
+   "The scheme costs about eleven thousand dollars a year, mainly met by a charity and a supermarket that donates bread. Nutritionists at a nearby university will study the type of food provided to see whether improvements can be made without raising costs. The head hopes that the review will persuade the education authority to provide regular funding, as charitable donations cannot be relied on forever."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Pharmacists Take On More Minor Illnesses to Ease Clinic Queues",
+  "tags": [
+   "Public Health",
+   "Small Business"
+  ],
+  "summary": "New rules allow pharmacists to treat seven common conditions without a doctor's appointment.",
+  "paragraphs": [
+   "Pharmacists across the region can now treat seven common conditions, including earache, sore throats and minor skin infections, without patients first seeing a doctor. The change, which took effect this month, is designed to free up general practice appointments. Pharmacists have completed additional training and can prescribe a limited range of medicines where appropriate.",
+   "Pharmacist Nikhil Sharma of Eastbrook said he has already seen a steady stream of patients in the private consultation room. “People used to wait a week for an appointment about something I could deal with in ten minutes,” he said. Any patient with worrying symptoms is referred to a doctor, and details are shared with their clinic.",
+   "Doctors' representatives have generally welcomed the scheme, although they insist that pharmacists must have clear rules about when to refer. Some small pharmacies say that the payment for each consultation barely covers their costs. Health officials will publish figures after six months showing how many appointments have been saved, and they have promised to review the fee if rural pharmacies struggle to take part."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Men's Shed Gives Retired Workers a Place to Talk and Build",
+  "tags": [
+   "Mental Health",
+   "Community"
+  ],
+  "summary": "A workshop in Northgate is tackling loneliness among older men with wood, tools and tea.",
+  "paragraphs": [
+   "In a converted garage behind Northgate's fire station, a dozen retired men are building garden benches for a local care home. This is the town's Men's Shed, a workshop where older men can use tools, share skills and drink strong tea. Its founders hope it will offer something that a formal support group often cannot: a reason to turn up.",
+   "Former steelworker Alun Pryce started coming after his wife died. “I would not have gone to a meeting about loneliness in a million years,” he said. “But I will go and help mend a chair.” Conversations about health and grief tend to arise naturally, members say, when people are working side by side.",
+   "Local doctors have begun referring patients to the shed as part of a social prescribing scheme, in which non-medical activities are suggested alongside treatment. Researchers say evidence for such schemes is still developing. The shed relies on donated tools and a small council grant, and it is hoping to find larger premises. Women, members add, have recently asked whether they might start a shed of their own."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Clinic Offers Evening Hours for Shift Workers' Health Checks",
+  "tags": [
+   "Public Health"
+  ],
+  "summary": "Free checks at unusual hours have reached many workers who had not seen a doctor in years.",
+  "paragraphs": [
+   "A health centre in Port Alder has started offering free checks between eight and eleven at night for people who work unusual hours. The evening sessions were introduced after dock and warehouse workers told a local survey that they could not attend during ordinary opening times. Nurses measure blood pressure, cholesterol and blood sugar, and each appointment takes about twenty minutes.",
+   "Practice nurse Grace Adjei said about one in six people seen so far had been told of a problem they did not know about, most commonly high blood pressure. “Many of these men have not seen anyone since they were teenagers,” she said. “They are not ignoring their health. They are simply asleep when the surgery is open.”",
+   "The programme is funded for a year by a regional health budget, with two local employers allowing staff to attend during breaks. Those needing treatment are referred to their regular doctor. Public health officials say that reaching people in insecure or physically demanding jobs is essential to narrowing health gaps, and they plan to report on the results next autumn."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Swimming Lessons for Adults Fill Up After Coastal Safety Drive",
+  "tags": [
+   "Public Health",
+   "Community"
+  ],
+  "summary": "Hundreds of adults who never learned to swim have signed up for beginner classes.",
+  "paragraphs": [
+   "Beginner swimming classes for adults in Calder Bay have filled within days after a coastal safety campaign encouraged people who cannot swim to come forward. About a quarter of adults in some neighbourhoods say they would be unable to swim twenty-five metres, according to the city's leisure service. Many grew up in areas without pools or never had the opportunity to learn.",
+   "Instructor Zainab Hussein said many learners arrive feeling embarrassed. “Someone will tell me they are fifty-four and scared of water, as if it were a confession,” she said. “By the fourth lesson, they are floating and laughing.” Women-only sessions have been particularly popular, and the pool provides some free places for people on low incomes.",
+   "Lifeguards say learning basic water skills can save lives, especially along a coast with strong tides. The campaign followed two drownings last summer. The city has added extra classes on Sunday evenings to cope with demand and is training more instructors. Officials also urge beach visitors to swim between the flags and to call emergency services rather than enter the water to attempt a rescue."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Hospital Garden Grows Vegetables for Patient Meals",
+  "tags": [
+   "Nutrition",
+   "Community"
+  ],
+  "summary": "Staff and volunteers have turned an unused lawn into a garden that supplies the hospital kitchen.",
+  "paragraphs": [
+   "An unused lawn behind St. Brigid's Hospital has been transformed into a vegetable garden that now supplies part of the kitchen's ingredients. Staff, volunteers and some recovering patients tend raised beds of salad leaves, herbs, beans and tomatoes. Head chef Pavel Novak uses the produce in soups and side dishes, and any surplus goes home with the staff who cared for it.",
+   "Novak said hospital food rarely has a good reputation. “When someone has not eaten properly for days, a little fresh basil can matter,” he said. The garden's beds are built at wheelchair height so that patients from the rehabilitation ward can take part, which therapists say is useful for strength and coordination.",
+   "The project began with a small donation from a retired surgeon and now has a waiting list of volunteers. It supplies only a tiny share of the hospital's needs, and managers admit it will never replace regular suppliers. Even so, dietitians are studying whether fresher meals encourage patients to eat more. Local schools have asked to visit, and the hospital hopes to add fruit trees next spring."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Teen Mental Health Drop-In Opens Above a Skate Shop",
+  "tags": [
+   "Mental Health",
+   "Education"
+  ],
+  "summary": "Young people can talk to trained counsellors without an appointment in a space they helped design.",
+  "paragraphs": [
+   "A mental health drop-in centre for teenagers has opened above a skate shop in Eastbrook, offering free conversations with trained counsellors and no need for an appointment. The space was designed with help from a panel of local sixteen-year-olds, who chose its location because they thought young people would feel comfortable walking through the door without being noticed.",
+   "Counsellor Mei Lin said the absence of a waiting room was deliberate. “If you ask a fifteen-year-old to sit in a clinic, many will never come back,” she said. “Here you can come for a hot chocolate and decide whether to talk.” Staff can refer anyone who needs more specialist care to the regional health service.",
+   "The centre opens four afternoons a week and is funded by a charity and the local council for its first two years. Waiting lists for youth mental health services in the county currently stand at several months, and school counsellors say demand has risen sharply. Parents are welcome at a monthly evening session, where staff explain how to start difficult conversations at home."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Mobile Dentist Van Brings Check-Ups to Remote Villages",
+  "tags": [
+   "Public Health"
+  ],
+  "summary": "A converted van is visiting hill villages where residents had to travel for hours to see a dentist.",
+  "paragraphs": [
+   "A converted van fitted with a dentist's chair has begun touring villages in the Tarn Hills, bringing check-ups to communities that have been left without a local practice. The nearest dentist accepting new patients is a ninety-minute drive away for some residents. The van parks at village halls and school yards, and it can treat about twelve people a day.",
+   "Dentist Hugo Lambert said he has seen many problems that have been left untreated for years. “People wait until the pain becomes impossible,” he said. “We have taken out teeth that could easily have been saved a few years ago.” Dental nurse Sadia Khan spends part of each visit teaching primary school children how to brush properly.",
+   "The service is being paid for by the regional health authority as a two-year trial, although the waiting list is already long. Councillors say it does not solve the underlying shortage of dentists, and they want incentives for graduates to settle in rural areas. Residents appear delighted for now. On the van's first day in Upper Tarn, every appointment was gone within an hour."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Doctors Urge Flu Jabs as Season Starts Earlier Than Usual",
+  "tags": [
+   "Public Health"
+  ],
+  "summary": "Regional health officials say early cases mean vulnerable residents should not delay vaccination.",
+  "paragraphs": [
+   "Health officials in Verrin County are urging older residents and people with long-term conditions to get their flu vaccinations promptly, after cases began rising several weeks earlier than usual. Clinics have reported a steady increase in patients with fever and coughs since the start of the school term, and several care homes have introduced additional hygiene measures.",
+   "Public health director Dr. Ingrid Solberg said there was no cause for alarm, but timing matters. “The vaccine takes about two weeks to work,” she said. “Waiting until everyone around you is ill is too late.” Vaccinations are free for those over sixty-five, pregnant women and certain patient groups, and are available at clinics and many pharmacies.",
+   "Hospitals have been preparing for winter by opening additional beds and reviewing staff rotas. Officials advise anyone who is unwell to stay away from elderly relatives and to wash their hands often. Experts are careful to note that an early start does not necessarily mean a severe season, and the county will publish weekly case numbers on its website until spring."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Dementia-Friendly Cinema Screenings Win Over Audiences",
+  "tags": [
+   "Mental Health",
+   "Film"
+  ],
+  "summary": "Softer lights, lower volume and a singalong interval make film outings possible for people with dementia.",
+  "paragraphs": [
+   "The Regent Cinema in Port Alder has begun holding monthly screenings for people living with dementia and their carers. The lights stay partly on, the volume is lower and nobody minds if an audience member gets up, walks around or talks. Classic musicals have proved most popular, and tea and biscuits are served during a long interval.",
+   "Carer Monique Lefevre brought her husband, a former piano teacher, to a recent showing. “It is the first time in two years we have been out somewhere that felt normal,” she said. “He sang every word.” Cinema staff have completed a short training course on how to communicate calmly and helpfully.",
+   "Specialist nurses say that familiar music can help people connect with memories even when the disease is advanced, although they warn against claims that it slows the condition. The screenings cost little to run and regularly attract about seventy people. Cinema manager Owen Parry said he had expected a modest audience. Now he plans to offer them every fortnight and has been asked to share his approach with other venues."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Low-Salt Bread Trial Shows Small Changes Can Add Up",
+  "tags": [
+   "Nutrition",
+   "Public Health"
+  ],
+  "summary": "Local bakers cut salt gradually over a year, and most customers did not notice the difference.",
+  "paragraphs": [
+   "A year-long trial involving nine bakeries in Verrin County has shown that salt in bread can be reduced by about a fifth with almost no effect on sales. The bakers lowered the amount in small steps every few weeks, and taste panels organised by a local university could rarely identify any difference between the old and new loaves.",
+   "Nutrition researcher Dr. Farah Aziz said bread is a surprisingly large source of salt in many diets because people eat it so frequently. “Nobody thinks of a sandwich as salty,” she said. “That is exactly why small, quiet changes can work.” High salt intake is associated with raised blood pressure, which increases the risk of heart disease and stroke.",
+   "Baker Tom Greaves admitted he had been sceptical. “Salt affects the dough, so we had to adjust a few recipes,” he said. Researchers say a trial of this size cannot show health benefits directly, and they want larger studies. They hope that more bakeries will take part next year, and the county has offered free recipe advice to any business that wishes to join."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Community Choir Helps People With Lung Conditions Breathe Easier",
+  "tags": [
+   "Public Health",
+   "Music"
+  ],
+  "summary": "Singing exercises led by a physiotherapist are teaching patients to control their breathing.",
+  "paragraphs": [
+   "A weekly choir in Northgate is helping people with long-term lung conditions learn better breathing techniques. Led by a respiratory physiotherapist and a local music teacher, the group warms up with gentle exercises before singing folk songs and pop classics. Members include former miners and factory workers, many of whom have lived with breathlessness for years.",
+   "Physiotherapist Rachel Stein said singing naturally encourages people to take longer, controlled breaths. “It does not repair damaged lungs,” she said. “But it can teach people to manage their breathing, and that can reduce panic when they feel short of breath.” Oxygen cylinders are a common sight among the choir's back row.",
+   "Member Ivor Thomas, seventy-three, said the choir has also given him a social life. “I used to avoid stairs and people,” he said. “Now I have a Tuesday night, and we are not half bad.” The group performs at a care home each Christmas and receives funding from a lung health charity. Organisers hope to start another choir in Calder Bay after several hospital doctors asked about it."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "New Mothers Find Support in Peer Breastfeeding Network",
+  "tags": [
+   "Public Health",
+   "Community"
+  ],
+  "summary": "Trained volunteers offer practical help by phone and home visit in the first weeks after birth.",
+  "paragraphs": [
+   "A network of trained volunteers in Calder Bay is helping new mothers through the first difficult weeks of breastfeeding. The volunteers, all of whom have fed their own babies, receive a short course from the hospital's midwives. They then offer support by phone and at home, particularly in neighbourhoods where few mothers have family members with experience to rely on.",
+   "Volunteer Fatima Noor said she joined after her own struggles. “At three in the morning, you do not need a leaflet,” she said. “You need somebody who says it hurt for me too, and it got easier.” Midwives stress that volunteers do not replace medical care and that any mothers or babies who appear unwell are referred quickly.",
+   "Hospital figures suggest more mothers in the areas served are continuing to breastfeed at six weeks, although staff say many factors are involved. They also emphasise that feeding choices are personal and that mothers who use formula deserve equal support. The network has begun recruiting volunteers who speak other languages, since many recently arrived families have told midwives that they felt isolated."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Cycling Prescriptions Get Patients Moving in Eastbrook",
+  "tags": [
+   "Public Health",
+   "Cycling"
+  ],
+  "summary": "Doctors can now refer patients to free bike loans and guided rides instead of relying only on medication.",
+  "paragraphs": [
+   "Doctors in Eastbrook can now prescribe a bicycle. Under a pilot scheme, patients with conditions such as mild depression, high blood pressure or type 2 diabetes may be offered a free three-month bike loan and weekly guided rides. Electric bikes and adapted tricycles are available for those with limited mobility, and all participants receive basic safety training.",
+   "Dr. Sean Gallagher said he has written about forty cycling prescriptions so far. “It is not a substitute for medication when medication is needed,” he said. “But plenty of my patients would benefit from getting outside, and many of them need a push.” Participants meet at the town's old railway path, which is flat and free of traffic.",
+   "Patient Margaret Dunne, sixty-eight, had not ridden a bike since she was a child. “I wobbled for a week,” she said. “Now I cycle to see my sister.” The pilot, funded by a transport charity, will be evaluated next year by researchers. They will study whether people carry on cycling once the free loan ends, which the organisers consider to be the true test."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Sleep Clinic Warns Teenagers About Late-Night Phone Use",
+  "tags": [
+   "Mental Health",
+   "Education"
+  ],
+  "summary": "School visits by sleep specialists encourage families to keep phones out of bedrooms overnight.",
+  "paragraphs": [
+   "Specialists from the Calder Bay sleep clinic have started visiting secondary schools to talk to teenagers and parents about the effects of late-night phone use. A survey carried out at four schools found that more than half of fifteen-year-olds regularly went to sleep after midnight on school nights, and that many checked messages after going to bed.",
+   "Sleep consultant Dr. Yara Haddad said that teenagers' body clocks naturally shift later, which makes early starts hard enough. “Add a bright screen and a group chat, and it is no wonder they are exhausted,” she said. She suggests charging phones outside the bedroom overnight, and she urges parents to follow the same rule.",
+   "Students at Northgate High School responded with a mixture of humour and scepticism during a recent assembly, although many admitted feeling tired in morning lessons. Researchers caution that it is hard to separate the effects of phones from other causes of poor sleep, including stress. Two schools are now considering a modest change to their timetables and will ask students for their views."
+  ]
+ },
+ {
+  "category": "Health",
+  "title": "Food Bank Adds Nutrition Advice and Cooking Lessons",
+  "tags": [
+   "Nutrition",
+   "Community"
+  ],
+  "summary": "Volunteers are showing clients how to turn basic ingredients into low-cost family meals.",
+  "paragraphs": [
+   "The Port Alder food bank has added short cooking lessons to its weekly sessions, showing clients how to make filling meals from the tins, lentils and vegetables it usually gives out. The classes began after volunteers noticed that some unfamiliar items were being left behind on the tables, and clients said they did not know how to use them.",
+   "Volunteer chef Luca Moretti, who used to run a restaurant kitchen, demonstrates dishes on a small portable stove. “You do not need much,” he said. “An onion, a tin of tomatoes and some beans can feed a family of four for very little.” Recipes are printed in several languages and designed for homes with limited equipment.",
+   "Staff say the sessions have also become a welcome social occasion for people who may otherwise feel embarrassed about visiting. A dietitian from the local hospital attends once a month to answer questions. The food bank's manager, Dorothy Blake, stressed that lessons cannot solve the real problem, which is low income. Yet she says that a warm meal shared at the table helps people feel treated with dignity."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Otters Return to the Brede River After Forty Years",
+  "tags": [
+   "Wildlife",
+   "Climate"
+  ],
+  "summary": "Volunteers have recorded otters on a stretch of river that was badly polluted a generation ago.",
+  "paragraphs": [
+   "Otters have returned to the Brede River for the first time in about forty years, according to volunteers who have been monitoring the waterway. Night cameras placed along a three-kilometre stretch recorded a female and two cubs last month. The sighting has delighted conservationists, as the river was once heavily polluted by factories that have since closed.",
+   "River warden Beatrice Coleman said the discovery reflects decades of patient work. “Clean water came first, then insects, then fish,” she said. “Otters are the reward at the end of a very long chain.” Volunteers have planted thousands of trees along the banks and removed several old weirs that blocked the passage of migrating fish.",
+   "Experts warn that the population is still fragile and that road traffic is a serious risk near bridges. The county plans to install underpasses at two dangerous crossings. Walkers are asked to keep dogs under control near the banks and not to search for the animals' resting places. Volunteers hope to carry out a full survey of the river next spring."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Coastal Town Debates Retreat as Sea Claims Beach Road",
+  "tags": [
+   "Climate",
+   "Housing"
+  ],
+  "summary": "Residents of Sandhaven face hard choices after a report says defences cannot protect every home.",
+  "paragraphs": [
+   "Residents of the coastal village of Sandhaven packed the community hall this week to discuss a report warning that parts of the village cannot be protected from the sea indefinitely. Beach Road has lost more than five metres of land in a decade, and engineers say that new defences for its twenty-two homes would cost far more than the properties are worth.",
+   "Homeowner Clive Morgan, whose garden has been steadily shrinking, spoke for many. “My family has lived here for three generations,” he said. “Nobody should learn from a consultant's diagram that their home has an expiry date.” Councillors stressed that no one would be forced to move immediately and that the plan covers the next fifty years.",
+   "Options under discussion include moving vulnerable homes further inland and allowing part of the coast to flood naturally, which could create a marsh that absorbs storm energy. Funding for relocation remains uncertain, and residents want guarantees from the national government. The council will hold further meetings before publishing its final plan next year and says every affected household will be offered individual advice."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Solar Farm Shares Land With Sheep in Verrin Valley",
+  "tags": [
+   "Energy",
+   "Agriculture"
+  ],
+  "summary": "A new solar site lets a farmer keep grazing while the panels supply power to two thousand homes.",
+  "paragraphs": [
+   "A new solar farm in the Verrin Valley has been designed so that sheep can graze beneath its panels, an arrangement that its developers hope will reduce objections from those concerned about losing farmland. The site can supply about two thousand homes. Its panels are mounted high enough for animals to move freely below them and to shelter from summer heat.",
+   "Farmer Rhys Gwynn, who leases the land, said he was doubtful at first. “I told them that sheep will scratch on anything,” he said. “But the lambs did well, and I now have a second income that does not depend on the weather.” The grazing also keeps the grass down, which reduces the need for mowing.",
+   "Critics say that solar development should be directed to rooftops and brownfield sites before good farmland is touched. The developer has also planted hedgerows to shield the site from nearby homes. Regional energy planners say the county will need much more renewable generation to meet its targets, and they will study this site's results before approving several larger applications waiting for a decision."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Volunteers Pull Two Tonnes of Plastic From Harbour Mudflats",
+  "tags": [
+   "Community",
+   "Wildlife"
+  ],
+  "summary": "An annual cleanup found fishing nets, tyres and thousands of plastic bottles along the shore.",
+  "paragraphs": [
+   "More than two hundred volunteers spent Saturday pulling plastic and other rubbish from the mudflats at Port Alder, collecting about two tonnes of waste in a single morning. Their finds included fishing nets, car tyres, thousands of bottles and a shopping trolley that took six people to lift. The annual cleanup has been running for eleven years.",
+   "Organiser Hana Kowalski said the types of rubbish tell a story. “Every bag gets sorted and counted,” she said. “Last year we found far fewer plastic cotton buds, and that is because of a change in the law. Rules really do work.” The data is sent to a national marine charity that tracks pollution along the coast.",
+   "Birdwatchers say the mudflats are an important feeding ground for thousands of wading birds that stop here on migration, and the plastic is a danger to them. Harbour authorities have agreed to provide more recycling bins for fishing crews. The volunteers left the shore tired and muddy but in good spirits, and many stayed to share a bowl of soup provided by a nearby café."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Council Plants Mini Forests on Unused City Land",
+  "tags": [
+   "Climate",
+   "Community"
+  ],
+  "summary": "Dense plantings the size of a tennis court are being tried in neighbourhoods short of trees.",
+  "paragraphs": [
+   "Calder Bay council has started planting small, dense forests on patches of unused land in neighbourhoods with few trees. Each site is about the size of a tennis court and contains hundreds of native saplings packed closely together. The method is intended to produce a thick canopy much more quickly than conventional planting, while requiring little maintenance after the first three years.",
+   "Parks officer Thabo Dlamini said that hotter summers have made shade a question of fairness. “Some streets are several degrees warmer than others, and they are usually the poorest ones,” he said. Local schools and residents helped to plant the first three forests, and each site includes a small path and a bench.",
+   "Some scientists say claims about the speed of growth should be treated with caution until long-term results are available. Residents have also asked whether the forests will attract litter or antisocial behaviour, and the council has promised to monitor this. If the trial goes well, ten more sites will follow within two years, focusing on areas near schools, care homes and busy roads."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Farmers and Anglers Join Forces to Cut River Pollution",
+  "tags": [
+   "Agriculture",
+   "Wildlife"
+  ],
+  "summary": "Fencing, buffer strips and shared testing are reducing the amount of soil washing into a trout stream.",
+  "paragraphs": [
+   "Farmers and anglers who once blamed each other for the decline of the Tarn Beck have started working together to clean it up. Over the past two years, thirty farms have fenced cattle out of the stream, planted strips of grass and trees along its banks and agreed on when to spread fertiliser. An angling club tests the water every month.",
+   "Farmer Owen Pritchard admits the early meetings were tense. “We turned up expecting a telling off,” he said. “Instead somebody asked what would actually help, and that changed the conversation.” Grants paid for most of the fencing and for new drinking troughs, which keep cattle from muddying the banks.",
+   "Monthly tests now show less sediment and fewer nutrients, and the anglers have begun recording young trout in places where none were found five years ago. Scientists say that recovery can take many years, and that heavy storms can undo some of the gains. The project has been chosen as a case study for a regional water plan, which hopes to spread the approach to twelve other streams."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Heat Pumps Install Boom Tests Region's Small Plumbers",
+  "tags": [
+   "Energy",
+   "Housing"
+  ],
+  "summary": "Demand is rising faster than the number of trained installers, leaving some households waiting.",
+  "paragraphs": [
+   "Households across the region are facing long waits for heat pumps as demand grows more quickly than the number of trained installers. Government grants and high gas bills have prompted more homeowners to consider replacing their boilers, but many small plumbing firms say that they lack the skills or time to take on the additional work.",
+   "Installer Karen Doyle has a waiting list that stretches into next spring. “The technology is fine, if the house is ready,” she said. “The real work is explaining insulation and radiators to people.” Older homes often need other improvements before a heat pump can run efficiently, which can significantly increase the overall cost.",
+   "Calder Bay Community College has started a short conversion course for experienced gas engineers, and its first three classes are full. Some consumers have complained about poor advice from rushed salespeople, and a trade body has asked customers to check installers' qualifications. Energy advisers suggest getting at least two quotes and an independent assessment. They add that insulation is worthwhile regardless of how a home is heated."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Rewilded Quarry Becomes Haven for Rare Orchids and Bats",
+  "tags": [
+   "Wildlife",
+   "Community"
+  ],
+  "summary": "A limestone quarry that closed in the 1990s has turned into one of the county's richest nature sites.",
+  "paragraphs": [
+   "A limestone quarry that closed three decades ago has become one of the richest wildlife sites in the county, according to a survey published this week. Stoneleigh Quarry was left largely alone after the machines departed, and thin soils have allowed rare orchids to flourish. Old tunnels now shelter five species of bat, and peregrine falcons nest on its high walls.",
+   "Ecologist Marta Silva said that the quarry shows how nature sometimes benefits from being left in peace. “Rich soil favours a few strong plants,” she said. “Poor, broken ground gives lots of unusual species a chance.” Volunteers help by clearing young trees that would otherwise shade out the wildflowers.",
+   "The owners had once considered filling the site with household waste, a plan dropped after local opposition. A wildlife trust now manages it, and it has opened a marked trail away from the most sensitive areas. Visitors are asked to stay on the paths, particularly in spring. Guided bat walks will be held on summer evenings, and bookings have already filled for the first month."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Electric Ferries to Replace Diesel Boats on Sorrel Crossing",
+  "tags": [
+   "Transport",
+   "Energy"
+  ],
+  "summary": "Two battery-powered vessels will serve the short island route, cutting fuel use and noise.",
+  "paragraphs": [
+   "Two battery-powered ferries will replace the ageing diesel vessels on the short crossing between Sorrel Harbour and the main island, the regional transport authority announced on Thursday. The new boats will each carry twenty cars and two hundred passengers, charging at the quayside during the ten-minute turnaround. They should enter service in about three years.",
+   "Project manager Ragnar Olsen said the route is ideal for electric vessels because it is short and the boats make frequent stops. “We can recharge a little and often,” he said. “On a longer route, the batteries would be far too heavy.” The authority expects to save about four thousand tonnes of carbon dioxide each year.",
+   "Islanders welcomed the investment, but they have long complained about reliability and want assurances that the service will not be interrupted during construction. The grid connection on the island will also need upgrading, which accounts for a large part of the cost. Crews will be retrained rather than replaced, the authority said, and the old ferries will be offered for sale when the new vessels arrive."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Bees Thrive on Rooftops of Downtown Office Blocks",
+  "tags": [
+   "Wildlife",
+   "Community"
+  ],
+  "summary": "Beekeepers say city hives are doing well, but scientists warn that wild pollinators need more flowers.",
+  "paragraphs": [
+   "Honeybees are thriving on the rooftops of downtown Calder Bay, where a growing number of office blocks now keep hives. Beekeeper Abena Mensah looks after twenty-four colonies on nine buildings. She says that urban parks and gardens provide a long season of varied flowers, and that city hives can produce more honey than those near large areas of single-crop farmland.",
+   "Office workers have begun taking lunchtime tours, wearing borrowed veils. “People who have never been near a hive come back every week,” Mensah said. “It changes how they look at the flowers outside.” One insurance company now gives jars of its rooftop honey to clients as a seasonal gift.",
+   "Scientists warn that adding honeybees is not the same as helping nature, since wild bees and other pollinators are the ones in real decline and may compete for the same food. They would prefer that companies plant more native flowers and reduce the use of pesticides. Mensah agrees, and she now encourages every building owner who asks for hives to create a small wildflower roof as well."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Drought Plan Puts Hosepipe Ban on Hold After Autumn Rain",
+  "tags": [
+   "Climate",
+   "Agriculture"
+  ],
+  "summary": "Reservoir levels have recovered slightly, but officials say the region's water supply remains under pressure.",
+  "paragraphs": [
+   "Water managers in Verrin County have postponed a planned hosepipe ban after heavy autumn rain partially refilled reservoirs. Levels at Lake Verrin, which supplies most of the county, had dropped to about forty percent of capacity at the end of summer. They have since recovered to just over half, but officials warn that a dry winter could quickly reverse that improvement.",
+   "Water company director Paul Okoye said residents helped by cutting back during the hottest weeks. “Demand fell by nearly a tenth when we asked,” he said. “That matters, but we cannot rely on the weather and goodwill forever.” The company is repairing leaks in old pipes, which currently lose about a fifth of treated water.",
+   "Farmers say that they need longer-term certainty about supplies, and some are building small storage ponds to collect winter rain. Environmental groups want water meters installed in all homes and stronger protection for rivers. The county will publish a revised drought plan in March, and officials are asking householders to fit simple water-saving devices, which are available free of charge."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Primary School Children Lead Campaign for Safe Walking Routes",
+  "tags": [
+   "Transport",
+   "Education"
+  ],
+  "summary": "Pupils mapped dangerous crossings and air pollution, then presented their findings to councillors.",
+  "paragraphs": [
+   "Pupils at Brede Primary School have persuaded the local council to add two new crossings and a car-free zone at the school gates. For a term-long project, ten-year-olds counted traffic, measured air pollution using borrowed sensors and marked dangerous spots on a large map. They then presented their findings at a formal meeting in the council chamber.",
+   "Pupil Noah Bennett said the adults listened more than he had expected. “We showed them the map, and one councillor said she never knew that path existed,” he said. Teachers used the project to practise maths, writing and public speaking, while parents helped to supervise the traffic counts in the mornings.",
+   "The new crossings will be installed over the summer holiday, and the street outside the gates will close to cars for thirty minutes at the start and end of each school day. Some nearby residents worry about congestion moving to neighbouring roads, and the council has promised to monitor traffic flows. The school hopes that more families will walk, and it plans to repeat its measurements in a year."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Community Energy Group Buys Its First Wind Turbine",
+  "tags": [
+   "Energy",
+   "Community"
+  ],
+  "summary": "More than six hundred residents have bought shares in a local turbine, with profits going to home insulation.",
+  "paragraphs": [
+   "A community energy group in the Tarn Hills has bought its first wind turbine after more than six hundred residents invested money in shares. The turbine, which stands on a ridge above the village of Upper Tarn, can generate enough electricity for about nine hundred homes. Profits will fund insulation for older houses and small grants to local groups.",
+   "Group chair Sian Rowlands said that local ownership changed how people felt about the project. “When a distant company wants a turbine on your hill, you ask what is in it for them,” she said. “When it belongs to your neighbours, it is a different conversation.” Shares started at just one hundred dollars.",
+   "A few residents continue to object to the view, and the planning process took nearly five years. However, the group's public meetings and the promise of shared benefits helped win support from most of the parish. Investors should receive a modest annual return, though this is not guaranteed. The group is now exploring a small hydroelectric scheme on the Tarn Beck, subject to an environmental study."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Salmon Count Rises After Dam Removal on Upper Brede",
+  "tags": [
+   "Wildlife",
+   "Climate"
+  ],
+  "summary": "Early figures suggest fish are reaching breeding grounds that had been blocked for a century.",
+  "paragraphs": [
+   "Salmon are spawning in the upper Brede River for the first time in more than a century, two years after the removal of an old mill dam. Biologists counted more than sixty nests in gravel beds that were previously out of reach of migrating fish. The results are the first evidence that the expensive removal project is working as planned.",
+   "River scientist Dr. Henrik Larsen said the speed of the response surprised his team. “We expected this to take much longer,” he said. “The fish were ready and waiting. We only had to get out of their way.” Removal of the dam also restored natural flows of gravel that salmon need for their nests.",
+   "The project was controversial in the beginning because some residents valued the mill pond and its history. Part of the original stone wall was kept as a heritage feature, with an information board explaining what happened. Scientists caution that salmon numbers vary from year to year and that warming seas remain a serious threat. Monitoring will continue for at least another eight years."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "City Bans Single-Use Cups at Public Events",
+  "tags": [
+   "Community",
+   "Climate"
+  ],
+  "summary": "Festivals and sports grounds in Calder Bay must switch to reusable cups from next summer.",
+  "paragraphs": [
+   "Calder Bay will ban single-use drinks cups at all public events on council land from next summer, after a trial at the city's food festival cut waste by more than half. Organisers will have to provide reusable cups, which customers pay a small deposit for and can return at any bar or stall when they leave.",
+   "Councillor Stella Papadakis said that the rule was a practical response to the mountains of rubbish left after big events. “We collected more than a hundred thousand cups after a single weekend,” she said. “Most of them were used for about twenty minutes.” The city has set aside money to help small community festivals pay for washing.",
+   "Some event organisers worry about the additional work and about broken cups in crowded areas, although the trial reported few problems. Sports clubs will have a further year to prepare. Waste campaigners have welcomed the decision and want it extended to takeaway restaurants. Council officers will review the scheme after its first summer and publish figures on the waste collected and the deposits returned."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Peatland Restoration Project Locks Carbon Into Tarn Moors",
+  "tags": [
+   "Climate",
+   "Agriculture"
+  ],
+  "summary": "Blocking old drainage ditches is helping moorland hold water, slow floods and store more carbon.",
+  "paragraphs": [
+   "Workers on the Tarn Moors have blocked more than twenty kilometres of old drainage ditches as part of a long-term project to restore damaged peatland. The ditches were dug generations ago in an attempt to create better grazing, but they dried the peat and caused it to release carbon. Rewetting the land helps it to store carbon and hold back water.",
+   "Project officer Callum Reid said that healthy peat works rather like a giant sponge. “When heavy rain falls on these hills, it ends up in the towns below within hours,” he said. “Wet peat slows it down.” Mosses have started to return, and curlews have been seen nesting in restored areas.",
+   "Farmers who graze sheep on the moor have been paid to take part and have helped with the work. Some say that they remain concerned about future grazing rights. Restoration is slow, and scientists say it could take decades for the peat to fully recover. The project is funded by a mix of public money and private carbon investors, an arrangement that has prompted debate among local conservationists."
+  ]
+ },
+ {
+  "category": "Environment",
+  "title": "Neighbours Share Rooftop Solar in Apartment Block Pilot",
+  "tags": [
+   "Energy",
+   "Housing"
+  ],
+  "summary": "A new rule lets flat owners split the output of a shared solar array on their building.",
+  "paragraphs": [
+   "Residents of a sixty-flat apartment block in Northgate have become the first in the county to share electricity from a single rooftop solar array. Until now, the rules made it hard for people living in flats to benefit from solar power, because each home has a separate meter and no private roof. A recent change allows owners to split the output.",
+   "Resident Tariq Mahmood, who organised the project, spent a year persuading his neighbours. “Half the meeting thought I was selling something,” he said. “The other half wanted to know about pigeons.” A smart meter divides the electricity between flats, and any surplus is sold back to the grid, with the proceeds going to a maintenance fund.",
+   "Early figures suggest that each household will save between ten and fifteen percent on its annual bill, depending on when it uses power. Housing associations have shown interest, since people on low incomes would benefit but rarely have access to solar. Experts say that shared schemes can be complicated to set up, and the county has published a free guide to help other buildings."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Regent Cinema Saved by Thousand-Strong Community Share Offer",
+  "tags": [
+   "Film",
+   "Community"
+  ],
+  "summary": "Residents have raised enough to buy a much-loved 1930s cinema that was due to close.",
+  "paragraphs": [
+   "The Regent Cinema in Port Alder has been saved from closure after more than a thousand residents bought shares in a community buyout. The 1930s building was due to be sold to a developer in the spring. Supporters raised the required sum in eleven weeks, through small investments, concerts and a sponsored walk from the harbour to the hills.",
+   "Campaign leader Joan Whittaker, who had her first date at the Regent, said the building means more than films. “People got engaged in the back row and mourned their husbands at matinees,” she said. “You cannot replace that with flats.” Many shareholders put in only fifty dollars, and everyone gets the same single vote.",
+   "The new owners face a substantial repair bill, including the roof and the old heating system. Volunteers will run the box office, while a small paid team will manage the programme. The cinema plans to reopen after the winter with a mix of new releases, classics and local shorts. Organisers say the first film will be chosen by a vote among shareholders."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Young Writers Publish Anthology About Life in a Port Town",
+  "tags": [
+   "Books",
+   "Education"
+  ],
+  "summary": "Teenagers from three schools have written stories and poems drawn from interviews with dock workers.",
+  "paragraphs": [
+   "Teenagers from three Port Alder schools have published a collection of stories and poems inspired by interviews with retired dock workers. The anthology, titled Salt and Steel, grew out of a year-long project run by the town library. Its young authors spent weekends recording memories of strikes, storms, friendships and the sudden disappearance of hundreds of jobs when containers arrived.",
+   "Seventeen-year-old contributor Amir Hassan said he had walked past the docks every day without thinking about them. “My neighbour told me about working on a ship in a blizzard,” he said. “I had known him all my life and never asked.” A professional editor worked with the students, but the words remain their own.",
+   "The book's launch filled the library, and several of the interviewed workers were invited to read extracts aloud. The first print run of five hundred copies is selling through local shops, with all proceeds going towards next year's writing workshops. The recordings themselves will be kept in the town archive, so that future students can continue to learn from them."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Folk Festival Returns to Sorrel Islands After Five-Year Break",
+  "tags": [
+   "Music",
+   "Community"
+  ],
+  "summary": "Musicians and visitors filled island halls for the first time since funding problems stopped the event.",
+  "paragraphs": [
+   "The Sorrel Islands Folk Festival returned at the weekend after a five-year break, filling village halls and harbour pubs with fiddles, accordions and singing. The event had stopped because its organisers ran out of money and volunteers. A new committee of younger islanders revived it with support from local businesses and a small arts council grant.",
+   "Co-organiser Kirsten Bjorn, twenty-nine, said she attended the festival as a child and could not imagine the islands without it. “When it stopped, the place felt quieter in a way that was hard to explain,” she said. About twelve hundred tickets were sold, and ferries added extra sailings to carry the visitors.",
+   "Performers included veteran island musicians alongside bands from across the region. Several sessions were held in the local dialect, and a children's workshop taught traditional dance steps. Hotels and cafés reported their busiest weekend of the season. The committee will review its accounts over the winter, although it has already provisionally booked the same weekend next year, and it is hoping to attract more young performers."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Library Book Returned Sixty-Two Years Late With a Handwritten Apology",
+  "tags": [
+   "Books",
+   "Community"
+  ],
+  "summary": "A retired teacher found the overdue adventure novel in her late brother's attic.",
+  "paragraphs": [
+   "A library book borrowed in the early 1960s has been returned to Eastbrook Public Library with a handwritten note of apology. The adventure novel was found by retired teacher Dorothy Carr while she was clearing out her late brother's attic. Its date stamp showed that it should have come back more than sixty-two years ago, when the library was in a different building.",
+   "Librarian Peter Nowak said the staff were moved by the note. “She wrote that her brother had always loved that book, and that he would be embarrassed to know,” he said. Under the old rate of a penny a week, the fine would have exceeded thirty dollars, but the library has long since stopped charging.",
+   "The book has been placed in a small display near the front door, together with the note and a photograph of the old library. Staff say it has prompted several conversations with older visitors about their childhood reading. The library has now announced a short amnesty, inviting anyone with long-forgotten books to return them without embarrassment or questions, and it promises free coffee in exchange."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Street Art Trail Transforms Northgate's Forgotten Underpasses",
+  "tags": [
+   "Community",
+   "Education"
+  ],
+  "summary": "Artists and teenagers have painted murals in dim tunnels that residents had long avoided.",
+  "paragraphs": [
+   "A series of dim pedestrian underpasses in Northgate has been transformed by a trail of large murals painted by local artists and teenagers. The tunnels had a poor reputation, and many residents took long detours to avoid them at night. New lighting was installed before the painting began, and the walls now show scenes from the town's industrial history and its future.",
+   "Lead artist Marisol Vega spent weeks talking to residents before she started. “I asked what they wanted to see on their walk to work,” she said. “A woman told me about her father's foundry, and that became the biggest wall on the trail.” Young people on a council programme helped prepare and paint the designs.",
+   "Police report that reports of vandalism in the tunnels have fallen, although it is too early to draw firm conclusions. A printed map now guides visitors through all nine sites, and local schools have started arranging walking tours. The council has set aside money for repairs, and the artists say that any future damage will be treated as a chance to teach another group."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Amateur Theatre Company Celebrates One Hundred Years on Stage",
+  "tags": [
+   "Community"
+  ],
+  "summary": "The Calder Players mark their centenary with a play drawn from a century of programmes and memories.",
+  "paragraphs": [
+   "The Calder Players, one of the region's oldest amateur theatre companies, are celebrating their hundredth anniversary with a new play based on their own history. The company was founded by a group of shipyard clerks, and it has staged more than four hundred productions, even during years of war, recession and a fire that destroyed its first hall.",
+   "Director Eileen Fitzgerald, who joined at sixteen and is now seventy-four, wrote the script from boxes of old programmes and letters. “Every prop cupboard has a love story in it,” she said. “Three couples on our stage this month met in this company.” The cast ranges in age from nine to eighty-seven.",
+   "The anniversary production opens on Thursday and runs for ten nights at the company's small theatre on Dock Street, where the seats are still those purchased in the 1960s. Tickets have sold quickly. The players are also raising money for a new lighting system and are looking for younger members, particularly people willing to work behind the scenes in costume, sound and stage management."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Museum Exhibition Tells the Forgotten Story of Women Shipbuilders",
+  "tags": [
+   "Community",
+   "Books"
+  ],
+  "summary": "Photographs and oral histories reveal the thousands of women who worked in the yards during wartime.",
+  "paragraphs": [
+   "A new exhibition at the Maritime Museum in Port Alder is telling the story of thousands of women who worked in the town's shipyards during wartime, a chapter of local history that has rarely been told. Using photographs, wage slips and recorded interviews, the display shows women welding, riveting and painting hulls before being dismissed when the men came home.",
+   "Curator Rana Haddad began the research after finding a single photograph in a box of unlabelled prints. “There were forty women in overalls, grinning at the camera,” she said. “Nobody here could tell me their names.” An appeal in the local paper brought letters from daughters and granddaughters, and six of the women were identified.",
+   "One visitor, ninety-seven-year-old Edith Lowe, attended the opening and recognised herself in a picture on the wall. “We were good at it, too,” she told a small crowd. The exhibition runs until next spring, and schools have booked tours. The museum hopes that further families will come forward so that more of the faces in its photographs can finally be named."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Brass Band Recruits Teenagers Through Video Game Music",
+  "tags": [
+   "Music",
+   "Education"
+  ],
+  "summary": "A century-old colliery band is attracting new players with arrangements of game soundtracks.",
+  "paragraphs": [
+   "A century-old brass band in Northgate has found an unexpected way of recruiting young players: video game soundtracks. The Northgate Colliery Band, which was founded by miners and has struggled in recent years to replace ageing members, now mixes marches and hymns with arrangements of popular game themes. Membership of its youth section has tripled in just eighteen months.",
+   "Musical director Gareth Evans admits he was unfamiliar with the music at first. “My grandson played me the tune, and I thought it would suit the cornets,” he said. “The next week, there were eleven teenagers in the band room.” Instruments are loaned free of charge, and lessons take place on Tuesday evenings.",
+   "Older members were doubtful, but many now enjoy the challenge. Trombonist Stan Hughes, eighty, said that the young players have forced him to learn a new sort of rhythm. The band still plays at the town's remembrance service and its annual gala. Its first concert to feature both traditions sold out the town hall, and a recording has been shared widely online among gamers."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Independent Bookshop Turns Its Back Room Into Community Living Room",
+  "tags": [
+   "Books",
+   "Small Business"
+  ],
+  "summary": "A shop in Eastbrook is hosting language groups, chess clubs and quiet readers with nowhere else to go.",
+  "paragraphs": [
+   "When Ruth Gallagher opened her bookshop in Eastbrook, she expected to sell books. Eight years later, its back room has become something closer to a town living room. Language groups, a chess club and a knitting circle meet there each week, and anyone can sit with a cup of tea for as long as they like without buying anything.",
+   "Gallagher said the idea arose after the local community centre closed. “People had nowhere to go that did not cost money,” she said. “I had some old sofas and a kettle.” Regulars include a retired sailor who reads by the window every afternoon and students who come to study when their homes are crowded.",
+   "Sales of books have grown too, though the shop still makes only a modest profit. Trade associations say that many independent booksellers are surviving by offering experiences that online retailers cannot match. A small monthly supporters' scheme now helps pay the heating bill. Gallagher is planning a weekly storytelling hour for children, and she says the back room's greatest asset remains its very old, very comfortable sofa."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Film Students Document Vanishing Trades in Short Documentary Series",
+  "tags": [
+   "Film",
+   "Education"
+  ],
+  "summary": "A college project follows a clockmaker, a saddler and a boatbuilder as their skills become rare.",
+  "paragraphs": [
+   "Film students at Calder Bay Community College have made a series of short documentaries about people working in disappearing trades. Each ten-minute film follows a craftsperson, including a clockmaker, a saddler and a wooden boatbuilder, through a typical working day. The series will premiere at the Regent Cinema next month and will then be made available online free of charge.",
+   "Student director Jonas Weber spent three weeks with boatbuilder Hamish Reid, who is seventy-six and has no apprentice. “He talks to the wood,” Weber said. “I thought that was a joke at first, but it really is how he works.” The students learned to work with natural light and small crews, as many workshops are too cramped for large equipment.",
+   "Tutor Beatriz Costa said the project teaches young filmmakers patience and respect for their subjects. Each craftsperson has reviewed the final cut of their film. Several viewers at an early screening asked about training opportunities, and the college is now exploring links with a regional heritage skills fund. The students hope that the films will bring these trades a few new apprentices."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Night Market Brings Food and Music to Quiet Town Square",
+  "tags": [
+   "Community",
+   "Small Business"
+  ],
+  "summary": "Monthly evening stalls are drawing residents from many cultures to a once-empty town centre.",
+  "paragraphs": [
+   "On the first Friday of each month, the normally quiet square in Calder Bay's old town now fills with lanterns, music and the smell of grilled food. The Night Market began as a small trial last year and now has more than sixty stalls. Many are run by families from the city's newer immigrant communities, selling dishes that were previously hard to find.",
+   "Stallholder Linh Pham sells the rice rolls that she learned to make from her grandmother. “People queue, and then they ask me about my family's town,” she said. “That is my favourite part of the night.” The market gives first-time traders a low-cost way to test recipes before they consider opening a shop.",
+   "Nearby pubs and restaurants initially feared competition, but several now report better trade on market nights. The council has added extra late buses and asked traders to finish by ten o'clock, out of respect for residents living nearby. Organisers want to add a small stage for local bands and will hold a smaller version over the winter inside the old corn exchange."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Poet Laureate of the Valley Chosen by Public Vote",
+  "tags": [
+   "Books",
+   "Community"
+  ],
+  "summary": "A school caretaker who writes about hill farming has become the valley's first community poet.",
+  "paragraphs": [
+   "A school caretaker has become the first community poet of the Verrin Valley after a public vote involving more than two thousand residents. Dafydd Morris, fifty-eight, has been writing about hill farming, weather and his neighbours for years, mainly in notebooks kept in his van. Friends persuaded him to enter after hearing him read at a village harvest supper.",
+   "Morris said he was astonished by the result. “I thought poets were people in universities,” he said. “I mostly write down what the old farmers tell me.” His winning poem, about a shepherd searching for lambs in a late snowstorm, was printed in the local paper and has been pinned up in several shops.",
+   "During his two-year role, Morris will visit schools and care homes, and he will write poems for local events. The small budget for the position was raised by the valley's arts society. He has already been asked to write something for the reopening of a village hall. He plans to keep his job at the school, where he says pupils now ask him about rhymes while he fixes the radiators."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Dance Classes for Older Adults Spread Across Care Homes",
+  "tags": [
+   "Mental Health",
+   "Community"
+  ],
+  "summary": "Seated dance sessions led by a former ballet teacher are helping residents with balance and mood.",
+  "paragraphs": [
+   "A former ballet teacher is taking seated dance classes into care homes across Verrin County, and managers say residents are looking forward to them more than almost any other activity. Isabelle Martin, sixty-six, leads weekly sessions using music from the residents' youth. Participants move their arms and feet from their chairs, and those who are able may stand with support.",
+   "Care home manager Winston Bailey said the change in mood has been obvious. “We have residents who rarely speak but who will tap in time,” he said. “One gentleman asked his wife to dance for the first time in years.” Physiotherapists have noted that gentle movement helps with balance and may reduce the risk of falls.",
+   "A local arts charity pays for the classes in nine homes, and Martin is now training assistants so that more residents can take part. Researchers at a nearby university are studying whether regular sessions affect mood over time. Martin says the students are by far her most honest. “If they do not like the music,” she said, “they tell me immediately.”"
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Town Choir Sings Across Borders in Twin-City Video Concert",
+  "tags": [
+   "Music",
+   "Community"
+  ],
+  "summary": "Singers in Eastbrook and a partner town overseas performed together after months of online rehearsal.",
+  "paragraphs": [
+   "Members of the Eastbrook Town Choir have performed a joint concert with singers from their twin town overseas, with both groups linked by a live video connection projected on to large screens. The two choirs spent months rehearsing online, exchanging recordings and learning songs in one another's languages, many of which had unfamiliar sounds and rhythms.",
+   "Choir director Helen Marsh said that the technical side was the most difficult part. “A delay of half a second is nothing in a phone call, but it is a disaster in a chorus,” she said. An engineering student solved the problem by having one choir follow the other's recorded track, which allowed the voices to line up.",
+   "The audience in Eastbrook's town hall gave a standing ovation at the final song, which was sung in both languages. The twin town link dates from the 1960s but had faded in recent years. Councillors from both towns attended the event, and the choirs now plan to meet in person next summer. Members have already started raising funds to cover the cost of the trip."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Local History Podcast Turns Pub Tales Into Surprise Hit",
+  "tags": [
+   "Community",
+   "Small Business"
+  ],
+  "summary": "Two friends recording in a garden shed have found thousands of listeners for stories about their town.",
+  "paragraphs": [
+   "Two friends who began recording local history stories in a garden shed have ended up with one of the most popular podcasts in the region. Hidden Harbour tells tales of smugglers, shipwrecks and forgotten Port Alder characters, researched in the town archive and tested on regular customers at the Anchor pub. It now reaches about thirty thousand listeners each month.",
+   "Co-host Ewan Fraser, a bus driver by day, said they were amazed by the audience. “We started with eleven listeners, and nine were related to us,” he said. Co-host Maya Chandra, a history teacher, insists on checking each story against records. “If a legend is false, we say so, and that is usually the funnier version,” she said.",
+   "Listeners now send in family papers and photographs, and the archive reports more enquiries than ever. A small brewery sponsors the show, which covers the costs of equipment but not the hours of work. The pair have begun live recordings in the pub's back room, and the first event sold out in a matter of days. They plan a book next year."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Craft Weavers Keep Island Tradition Alive With Online Orders",
+  "tags": [
+   "Small Business",
+   "Community"
+  ],
+  "summary": "Sorrel Island weavers are selling blankets worldwide and passing their skills to a new generation.",
+  "paragraphs": [
+   "A small group of weavers on the Sorrel Islands is using online orders to keep alive a textile tradition that seemed close to dying out a decade ago. The group's wool blankets are made on hand looms, using patterns passed from mother to daughter. Orders now arrive from around the world, giving members a steady income through the long winter months.",
+   "Weaver Solveig Eriksen, seventy-two, said she never imagined selling to customers so far away. “A woman wrote to me to say my blanket keeps her warm in a very cold city,” she said. “I have pinned the letter over my loom.” Younger relatives manage the website and take photographs of each finished piece.",
+   "The group has taken on four apprentices with support from a heritage skills grant, and they spend two years learning to spin, dye and weave. Each blanket takes about two weeks to make and is therefore expensive. Members reject the idea of using machines, since it would change the character of the work. They have, however, agreed to teach short courses for visitors next summer."
+  ]
+ },
+ {
+  "category": "Culture",
+  "title": "Open-Air Shakespeare Draws Record Crowds to Castle Ruins",
+  "tags": [
+   "Community",
+   "Education"
+  ],
+  "summary": "A free summer production in the ruins of Tarn Castle has attracted families who rarely go to the theatre.",
+  "paragraphs": [
+   "A free open-air production of A Midsummer Night's Dream drew record audiences to the ruins of Tarn Castle this summer, with almost nine thousand people attending over two weeks. Families brought picnics and folding chairs, and many said they had never seen a live play before. Local schoolchildren played the fairies, and a town plumber took on the role of Bottom.",
+   "Director Natalia Rossi said the aim was to remove every possible barrier. “No tickets, no dress code and no shame about bringing a toddler,” she said. “If somebody cries, it is just part of the forest.” The cast rehearsed for three months, usually in the evening after work, and the costumes were made by volunteers.",
+   "The production is funded by a heritage charity and donations collected in buckets at the castle gate, which raised more than last year's total. One rainy performance went ahead under umbrellas and has already become a local legend. Organisers have confirmed that the event will return next summer. They will stage a comedy once more, and auditions will open in the spring."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Port Alder United Reach Cup Semi-Final for First Time in Thirty Years",
+  "tags": [
+   "Football",
+   "Community"
+  ],
+  "summary": "A late goal from a teenage substitute sent the semi-professional club into a historic semi-final.",
+  "paragraphs": [
+   "Port Alder United reached the semi-final of the regional cup for the first time in thirty years on Saturday, thanks to a late goal from a seventeen-year-old substitute. Danny Okoro, who only joined the first team this season, scored with a low shot in the eighty-eighth minute to secure a 2-1 win over Calder Town before a sell-out home crowd.",
+   "Manager Rob Keane, who also works as a plumber, praised his young forward. “He was on the bench eating a banana a few minutes earlier,” he said. “Then he goes on and does that. You cannot teach that kind of calm.” Fans poured on to the pitch at the final whistle, and the celebrations carried on along the harbour front.",
+   "The semi-final will be played in two weeks against Northgate Athletic, who are one division higher. A strong home attendance has given the semi-professional club a welcome financial boost, which it plans to spend on repairing its old grandstand. Okoro, meanwhile, has a mathematics exam on Monday. His teacher, he reported, has agreed to no special treatment."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Teenage Runner Breaks County Record at Brede Valley Meet",
+  "tags": [
+   "Athletics",
+   "Education"
+  ],
+  "summary": "Sixteen-year-old Amara Diallo cut more than a second from an 800 metres record set in 1998.",
+  "paragraphs": [
+   "Sixteen-year-old Amara Diallo broke a county record that had stood for more than twenty-five years at the Brede Valley athletics meet on Sunday. The Northgate High School student ran the 800 metres in two minutes and four seconds, more than a second faster than the mark set in 1998. Her time also qualified her for next summer's national championships.",
+   "Diallo only took up running three years ago, after a teacher noticed how quickly she crossed the playground. “I just wanted to beat my brother,” she said, laughing. Coach Peter Lindgren said she has improved steadily, largely because she listens carefully and is willing to rest. “Talent is common,” he said. “Patience at sixteen is not.”",
+   "Her club, which trains on a worn cinder track, has launched a fundraising campaign to resurface it. Lindgren is careful to protect his athlete from too much attention, limiting her races and insisting that school remains the priority. The previous record holder, now a physical education teacher in Calder Bay, sent a message of congratulations and a promise to come and watch her race."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Walking Football League Keeps Over-Sixties in the Game",
+  "tags": [
+   "Football",
+   "Public Health"
+  ],
+  "summary": "No running allowed: a new league gives older players a chance to return to the sport they love.",
+  "paragraphs": [
+   "A walking football league for players over sixty has begun in Calder Bay, with eight teams competing every Thursday morning. The rules are simple: anyone caught running gives away a free kick, and the ball must stay below head height. Many of the players last kicked a ball decades ago and thought that injuries had ended their footballing days.",
+   "Retired bus inspector Frank Delaney, seventy-one, had two knee operations and believed he would never play again. “I may be slow, but I still know where the space is,” he said. “The banter has not changed at all since 1975.” Referees have had to issue a few warnings to players who forget and break into a jog.",
+   "Local doctors say that the games provide useful gentle exercise and a chance to socialise, which can be especially important following retirement or bereavement. The league has also begun to attract a team of women, who took on and beat one of the men's sides in a friendly match. Organisers are looking for a sponsor to help provide kit and a trophy for the final."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Cyclists Ride Coast to Coast to Fund Children's Hospice",
+  "tags": [
+   "Cycling",
+   "Community"
+  ],
+  "summary": "A team of forty riders covered three hundred kilometres in three days, raising a record sum.",
+  "paragraphs": [
+   "Forty amateur cyclists completed a three-day ride from Calder Bay to the far side of the Tarn Hills at the weekend, raising a record sum for a local children's hospice. The riders, ranging in age from nineteen to sixty-eight, covered around three hundred kilometres and climbed the notorious Tarn Pass in heavy rain on the second day.",
+   "Organiser Simon Teague, whose daughter received care at the hospice, has led the ride for nine years. “When your legs have nothing left, you remember why you are doing it,” he said. “That gets you up the hill.” Volunteers drove support vehicles carrying spare tyres, food and dry clothes, and villagers came out to cheer riders on.",
+   "The team has raised more than eighty thousand dollars so far, and donations are still coming in. Hospice director Louise Grant said that the money would fund a nurse for a whole year, and that most of the cost of the service relies on charity. The riders crossed the finish line together, and several have already signed up for next year's event, despite very sore legs."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "New Women's Rugby Team Fills Local Pitch and the Club Bar",
+  "tags": [
+   "Community",
+   "Education"
+  ],
+  "summary": "A club that nearly folded has been revived by a women's squad of nurses, teachers and students.",
+  "paragraphs": [
+   "A rugby club in Eastbrook that was close to closing a few years ago has found new life thanks to its women's team. Founded just two seasons ago with barely enough players, the squad now has more than forty members, including nurses, teachers and students. Its Sunday home matches are drawing bigger crowds than the men's first team.",
+   "Captain Dee Armstrong, a paramedic, had never played before she turned thirty-four. “I came along for a laugh, got knocked flat and absolutely loved it,” she said. Club chairman Barry Holt said the change has been remarkable. “They have rescued the place,” he said. “The bar takings have doubled, and the changing rooms have finally been painted.”",
+   "The team won promotion last season, and it now travels across the county for matches. A partnership with two secondary schools has started to bring teenage girls into the game. The club wants to upgrade its facilities, including separate changing rooms and better lighting for winter training, and it has applied for a sports grant. Armstrong says that new players of any size are welcome."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Swimmer With One Arm Wins Gold at Regional Championships",
+  "tags": [
+   "Athletics",
+   "Community"
+  ],
+  "summary": "Nineteen-year-old Theo Marek took gold in open competition, months after moving up from para events.",
+  "paragraphs": [
+   "Nineteen-year-old Theo Marek won gold in the 200 metres freestyle at the regional swimming championships in Calder Bay, competing against able-bodied rivals. Marek, who was born without a left forearm, has been swimming since he was five, after his parents enrolled him in lessons on the advice of a physiotherapist. It is his first win in open competition.",
+   "He said that the result surprised even his coach. “I always knew I had a strong finish,” he said. “I just kept waiting for someone to pass me, and nobody did.” Coach Anneli Korhonen has worked with him for ten years, developing a stroke that makes up for the difference by using more rotation through the hips.",
+   "Marek is studying sports science at university and intends to compete in para-swimming events internationally next year, while continuing to enter open meets at home. He now visits schools to speak with disabled children about sport. “Nobody needs to feel sorry for me,” he told pupils at one school. “They should feel sorry for the people I am about to beat.”"
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Grassroots Clubs Struggle as Pitch Hire Costs Rise",
+  "tags": [
+   "Football",
+   "Small Business"
+  ],
+  "summary": "Youth teams warn that higher fees could price out low-income families from organised sport.",
+  "paragraphs": [
+   "Grassroots sports clubs across Verrin County are warning that rising fees for pitches and halls could price lower-income families out of organised sport. The county's leisure service has raised its charges by about fifteen percent in order to cover higher energy and maintenance bills. Volunteers say that the increases will have to be passed on to parents.",
+   "Under-twelves coach Malik Johnson said his team already holds raffles to pay for kit. “Some of these children only get proper exercise at training,” he said. “Every time the fee goes up, I lose another one or two.” A survey of forty youth clubs found that most were considering raising subscriptions or reducing the number of training sessions.",
+   "Council leaders say that their budgets are under severe pressure and that sport facilities must get closer to covering their own costs. They have offered a modest hardship fund for families on low incomes. Opposition councillors argue that cuts to children's sport are a false economy given rising levels of childhood obesity. A public meeting will be held at Eastbrook Sports Centre next week."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Rowing Club Opens Doors to Inner-City Teenagers",
+  "tags": [
+   "Education",
+   "Community"
+  ],
+  "summary": "A historic boat club is offering free coaching and bus fares to pupils from nearby estates.",
+  "paragraphs": [
+   "The Calder Bay Rowing Club, founded in 1872 and long associated with private schools, is inviting teenagers from the city's inner neighbourhoods to learn the sport free of charge. Its new programme offers coaching, equipment and bus fares to pupils from three state secondary schools, many of whom had never been on the water before they joined the club.",
+   "Head coach Victoria Ashby said rowing has an image problem that it needs to address. “The boathouse is two kilometres from these schools, but it might as well have been on the moon,” she said. Fifteen-year-old Jamal Reid said he came along for the free trip. “Then I got in the boat,” he said. “It's hard, but when it works, it feels like flying.”",
+   "The first crew of new recruits entered a regional regatta in September and finished a respectable fourth. Sponsors have provided money for three years, and older members have volunteered as drivers and mentors. Some long-standing members were cautious at first, Ashby admits, but most are now enthusiastic. The club hopes that some of these young rowers will go on to win university places."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Calder Bay Marathon Adds Wheelchair Race and Shorter Route",
+  "tags": [
+   "Athletics",
+   "Community"
+  ],
+  "summary": "Organisers are making the city's marathon more accessible as entries reach a new high.",
+  "paragraphs": [
+   "The Calder Bay Marathon will add a wheelchair race and a shorter ten-kilometre route next year, as organisers try to make the popular event more accessible. Race director Michelle Tan said that the changes follow a review prompted by requests from local disability groups, who pointed out that the course had previously made few provisions for wheelchair athletes.",
+   "“We kept saying this race was for everyone,” she said. “It was time to make that true.” The new route avoids the cobbled streets of the old town and includes a smoother section along the seafront. A record twelve thousand runners took part last spring, and many charities depend on the funds that they raise.",
+   "Wheelchair racer Ibrahim Yusuf, who advised the organisers, said the change will open the sport to more people. “Most of us never see a race like this near home,” he said. Some shop owners along the route have once again complained about road closures, and organisers have promised them better notice and diversions. Entries will open in December, and places are expected to fill rapidly."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Veteran Goalkeeper Retires After Twenty-Three Seasons With Same Club",
+  "tags": [
+   "Football",
+   "Community"
+  ],
+  "summary": "At forty-one, Northgate Athletic's Mick Dunn will hang up his gloves and become a youth coach.",
+  "paragraphs": [
+   "Northgate Athletic goalkeeper Mick Dunn has announced that he will retire at the end of this season after twenty-three years with the same club, a remarkable record in the semi-professional game. Dunn, forty-one, has made more than eight hundred appearances since his debut as a teenager, all while working as a postman and raising three children.",
+   "He said the decision came after a quiet conversation with his knees. “They told me it was time, and I decided not to argue,” he joked. Dunn saved a penalty in a famous cup match twelve years ago that is still talked about in the town's pubs, and he was named player of the season seven times.",
+   "The club will retire his number one shirt for a season and plans to hold a testimonial match in May. Fans have proposed naming the new stand after him. Dunn will stay on as a coach, working with young goalkeepers on Saturday mornings. “I have delivered letters to half the people in that ground,” he said. “I am not going anywhere.”"
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Mountain Bike Trails Bring New Visitors to the Tarn Hills",
+  "tags": [
+   "Cycling",
+   "Small Business"
+  ],
+  "summary": "A network of purpose-built trails has helped cafés and guesthouses, though walkers have raised concerns.",
+  "paragraphs": [
+   "A new network of purpose-built mountain bike trails in the Tarn Hills is drawing thousands of additional visitors to an area that has long relied on farming. The forty kilometres of graded routes opened last spring on former forestry land. Local guesthouses report more bookings outside the usual summer months, and a village café has taken on two additional staff.",
+   "Trail manager Euan Grant said the routes were carefully designed to avoid sensitive habitats. “We built them to shed water, so they do not turn into rivers of mud,” he said. A bike repair shop and rental business has opened in an old sawmill, and it is run by two brothers who grew up nearby.",
+   "Some walkers and horse riders worry about sharing paths with fast-moving cyclists, and clear signs and separate routes have been added at several points. The forestry service will review erosion each year. Volunteers meet monthly to repair the trails, and the local school has begun an after-school club. Councillors hope that the project will encourage more young families to stay in the hills."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "School Chess Team Wins National Title in Surprise Upset",
+  "tags": [
+   "Education",
+   "Community"
+  ],
+  "summary": "A small rural school beat far larger rivals after its pupils learned the game from a retired miner.",
+  "paragraphs": [
+   "A small rural primary school in the Tarn Hills has won the national school chess championship, beating opponents from far larger schools. The team of six from Upper Tarn Primary, which has only fifty-eight pupils in total, learned to play at a lunchtime club run by Arthur Bevan, an eighty-three-year-old retired miner who taught himself the game underground.",
+   "Bevan said that he had no special method. “I tell them to sit on their hands and think before they move,” he said. “It works for chess, and it would work for most of life.” Eleven-year-old captain Carys Jones won the deciding game after nearly an hour of careful play in the final.",
+   "The school raised money for the trip to the finals with a cake sale and a sponsored silence, which teachers described as their most peaceful fundraising event ever. Headteacher Mair Roberts said that the win has made the whole village proud and that reading and maths scores have also improved. The team will represent the country in an international schools event next spring."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Open Water Swimmers Call for Cleaner Bathing at Lake Verrin",
+  "tags": [
+   "Community",
+   "Climate"
+  ],
+  "summary": "Swimmers are running their own water tests as the popularity of lake swimming continues to grow.",
+  "paragraphs": [
+   "A growing group of open-water swimmers at Lake Verrin has begun testing the water itself, after several swimmers reported stomach illness over the summer. Members of the Verrin Bluetits collect samples each week and send them to a laboratory, paying for the tests through small donations. They are calling on the authorities to give the lake official bathing water status.",
+   "Group organiser Rosalind Hart said lake swimming has grown enormously in popularity. “On a Saturday morning, we now have a hundred people here,” she said. “We just want to know the water is safe.” Official status would mean regular testing by the environment agency and warning signs when pollution levels are high.",
+   "Water managers say that the lake is used mainly as a reservoir, and they are concerned about safety, because it has cold, deep water and no lifeguards. Early results from the swimmers' tests were mostly clean, with some spikes following heavy rain. A decision on the application is expected next year. Meanwhile, the group advises new swimmers to wear bright hats and never swim alone."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Boxing Gym Keeps Teenagers Off the Streets in Calder Bay",
+  "tags": [
+   "Mental Health",
+   "Community"
+  ],
+  "summary": "A former champion runs a free gym where young people learn discipline, and most never fight in a ring.",
+  "paragraphs": [
+   "In a former tyre warehouse in the east of Calder Bay, former regional champion Leon Grant runs a free boxing gym for local teenagers. Around seventy young people train there each week. Most will never step into a competitive ring, Grant says, and that is not the point. The gym gives them structure, a safe place and adults who notice when they do not appear.",
+   "Grant, who grew up on the same estate, said that the rules are simple. “Be on time, respect everyone and leave the trouble outside,” he said. “Some of these kids have never had anyone ask how school went.” Teenagers must show their school reports, and a volunteer tutor runs a homework table in the corner.",
+   "Police and youth workers say they have noticed a difference in the area, although the gym's funding remains uncertain from year to year. Former member Tyrone Ellis, now twenty-two, works as an electrician and comes back to coach twice a week. “He kept me out of a lot of trouble,” Ellis said. Grant hopes to secure a longer lease on the building."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Disability Sports Day Draws Hundreds to Northgate Stadium",
+  "tags": [
+   "Athletics",
+   "Community"
+  ],
+  "summary": "Wheelchair basketball, boccia and blind football gave athletes of all abilities a chance to take part.",
+  "paragraphs": [
+   "Hundreds of disabled athletes and their families gathered at Northgate Stadium on Saturday for the town's first inclusive sports day. The event gave people of all ages a chance to try wheelchair basketball, boccia, blind football and adapted cycling. It was organised by a local disability charity and supported by volunteers from nearby sports clubs and the university.",
+   "Thirteen-year-old Isaac Brown tried wheelchair basketball for the first time and immediately asked where he could join a team. “Normally, I just watch in PE,” he said. “Today I actually got to play.” His mother said that the day had been an emotional one, with many parents meeting other families facing similar challenges.",
+   "Organiser Claire Sutton said a lack of accessible local clubs remains the biggest barrier. “Many people have to travel for hours,” she said. “Today was about showing what is possible right here.” Three clubs have now agreed to open regular inclusive sessions, and the stadium has promised to improve its ramps and changing rooms. The charity hopes to make this an annual event."
+  ]
+ },
+ {
+  "category": "Sports",
+  "title": "Sailing Scheme Teaches Harbour Children to Read the Wind",
+  "tags": [
+   "Education",
+   "Community"
+  ],
+  "summary": "Volunteers from the yacht club are offering low-cost lessons to primary pupils in Port Alder.",
+  "paragraphs": [
+   "Children from Port Alder's primary schools are learning to sail at a new low-cost scheme run by volunteers from the town's yacht club. Many of the pupils live within sight of the water but have never set foot on a boat. Lessons take place in sheltered waters behind the harbour wall, using small dinghies that are donated or repaired by club members.",
+   "Volunteer instructor Nora Lindholm, a retired ferry captain, said the children learn more than sailing. “You cannot argue with the wind,” she said. “They learn to think ahead, to work together and to stay calm when things go wrong.” Every child wears a life jacket, and a safety boat stays close by throughout each session.",
+   "Ten-year-old Kofi Antwi said capsizing on purpose during training was the best part of the day. Teachers say the lessons have also prompted classroom projects on weather, tides and the town's maritime past. The club hopes to reach three hundred pupils next year and has launched an appeal for more dinghies, along with experienced adults who are able to spare a Saturday morning."
+  ]
+ }
+]
