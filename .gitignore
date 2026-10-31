@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+
+# Media uploads
+media/
+
+# Background research, not part of the code
+research_notes/
+reports/
+
+# Claude Code local files
+.claude/
