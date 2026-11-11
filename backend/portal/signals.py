@@ -1,8 +1,19 @@
-from django.db.models.signals import m2m_changed
+from django.db.models.signals import m2m_changed, post_save
 from django.dispatch import receiver
 
-from .models import User
+from .indexing import index_document
+from .models import Document, User
 from .roles import STAFF_ROLES
+
+
+@receiver(post_save, sender=Document)
+def update_search_index(instance, **kwargs):
+    """Every save goes through here, so publishing and unpublishing take effect at once.
+
+    View counts use QuerySet.update(), which skips this, so reading an
+    article does not reindex it. Deleting a document cascades to its postings.
+    """
+    index_document(instance)
 
 
 @receiver(m2m_changed, sender=User.groups.through)

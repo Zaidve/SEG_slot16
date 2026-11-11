@@ -1363,5 +1363,5 @@ class SeedDataTests(TestCase):
         self.assertEqual(context['top_queries'][0]['query'], 'harbour')
         self.assertEqual(context['top_queries'][0]['total'], 12)
         zero = {row['query'] for row in context['zero_result_queries']}
-        self.assertEqual(zero, {'time machine', 'moon base', 'dragon sightings'})
+        self.assertEqual(zero, {'teleportation', 'moon base', 'dragon sightings'})
         self.assertTrue(context['most_clicked'])

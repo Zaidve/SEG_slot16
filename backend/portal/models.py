@@ -4,6 +4,7 @@ import re
 import nh3
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils import timezone
 from django.utils.html import strip_tags
@@ -232,6 +233,46 @@ class SearchClickLog(models.Model):
 
     def __str__(self):
         return f'{self.query_string} ({self.query_id})'
+
+
+class IndexedDocument(models.Model):
+    """A published document in the search index, with its field lengths for BM25."""
+
+    document = models.OneToOneField(
+        Document, on_delete=models.CASCADE, related_name='search_entry'
+    )
+    title_length = models.PositiveIntegerField()
+    body_length = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f'Index entry for {self.document}'
+
+
+class Posting(models.Model):
+    """One term in one field of one document: the inverted index."""
+
+    class Field(models.TextChoices):
+        TITLE = 'title', 'Title'
+        BODY = 'body', 'Body'
+
+    term = models.CharField(max_length=100)
+    document = models.ForeignKey(
+        Document, on_delete=models.CASCADE, related_name='postings'
+    )
+    field = models.CharField(max_length=10, choices=Field.choices)
+    tf = models.PositiveIntegerField()  # how many times the term appears in the field
+    positions = ArrayField(models.PositiveIntegerField())  # for "phrase" queries
+
+    class Meta:
+        indexes = [models.Index(fields=['term'])]
+        constraints = [
+            models.UniqueConstraint(
+                fields=['term', 'document', 'field'], name='unique_posting'
+            ),
+        ]
+
+    def __str__(self):
+        return f'{self.term} in {self.field} of document {self.document_id}'
 
 
 class SiteSetting(models.Model):

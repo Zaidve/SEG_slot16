@@ -34,7 +34,7 @@ All articles, towns, people and organisations in the demo data are fictional. Th
    .venv\Scripts\python.exe manage.py seed_data
    ```
 
-   `seed_data` can be run again at any time. It never creates duplicates.
+   `seed_data` can be run again at any time. It never creates duplicates. The search index fills itself as articles are saved. To rebuild it from scratch, for example on a database created before Phase 2, run `manage.py build_index`.
 
 4. Install the frontend:
 
@@ -94,6 +94,13 @@ cd frontend
 npm run build
 ```
 
+To compare the two search engines on the judged test queries (add `--details` for every query):
+
+```powershell
+cd backend
+.venv\Scripts\python.exe manage.py evaluate_search
+```
+
 ## How each requirement is met
 
 | Requirement | How |
@@ -102,7 +109,7 @@ npm run build
 | Detail view with content, images and metadata | `GET /api/documents/{slug}`, shown by `pages/Detail.jsx`. Each read adds 1 to `views_count` with an `F()` expression |
 | Register, login, profile | `/api/auth/*` and `/api/profile`, using Django sessions and CSRF protection, not JWT |
 | Commenting, liking, user tagging | `/api/documents/{id}/comments`, `/like` and `/tags`. The user always comes from the session, never the request body |
-| Keyword search with filters | `GET /api/search`. All matching is in `search_documents()` in `portal/search.py`, the only function Phase 2 replaces |
+| Keyword search with filters | `GET /api/search`. All matching is in `search_documents()` in `portal/search.py`, which Phase 2 replaced with BM25 (see below) |
 | Super Admin | Every permission: users, roles (Groups), system logs (`LogEntry`, read-only) and `SiteSetting` |
 | Content Manager | Document create, edit and delete, publish and unpublish actions, categories and tags |
 | Moderator | Hide-comment and resolve-report actions, for spam control. Comment text cannot be edited |
@@ -115,13 +122,47 @@ npm run build
 | At least 50 to 100 seeded records | `seed_data` loads 100 articles from `portal/seed/articles.json`, plus accounts, comments, likes, reports and search logs |
 | Code in a Git repository | This repository |
 
+## Phase 2: hand-built search engine
+
+Phase 2 replaces only `search_documents()`. The API, click logging, analytics and React pages are unchanged.
+
+| Part | File | What it does |
+|---|---|---|
+| Analyzer | `portal/text.py` | Lowercases, removes accents, splits text into words and undoes plurals (Harman's S-stemmer), so `Harbours` and `harbour` match. Articles and queries use the same steps |
+| Inverted index | `Posting` and `IndexedDocument` in `portal/models.py`, `portal/indexing.py` | For every word, the published articles that contain it, with counts and positions, in two fields: the title, and the body (summary plus text) |
+| Index upkeep | `portal/signals.py` | Saving an article reindexes it, so publishing and unpublishing take effect at once. `build_index` rebuilds everything |
+| Ranking | `portal/search.py` | BM25F: rare words count more, repeats help less and less, long fields are marked down, and a title match counts 3 times a body match. Every query word must appear; `"quoted phrases"` must appear in order |
+| Evaluation | `portal/evaluation.py`, `portal/seed/search_judgments.json` | 31 test queries, each with hand-graded relevant articles, scored for both engines |
+
+### Results
+
+From `evaluate_search` on the 100 seeded articles:
+
+| Engine | nDCG@10 | MRR | Recall@10 |
+|---|---|---|---|
+| Phase 1 keyword (`icontains`) | 0.505 | 0.522 | 0.487 |
+| Phase 2 BM25 | 0.865 | 1.000 | 0.721 |
+
+- **nDCG@10** measures how well the top 10 are ordered (1.0 is perfect).
+- **MRR** measures how high the first relevant result appears (1.0 means always first).
+- **Recall@10** is the share of relevant articles found in the top 10.
+
+BM25 is never worse on any single query. It fixes nine queries where Phase 1 found nothing, mostly because Phase 1 needed the exact words in that order: "flood warning", "employee owned brewery", `"heat pumps"`.
+
+### Limits
+
+- **Requiring every word** keeps results precise, but broad queries such as "renewable energy" miss articles that use other words for the same idea. Returning partial matches lower down would raise recall.
+- **No synonyms or stemming beyond plurals:** "cyclists" does not match "cycling".
+- **Small, self-written test set:** the same person wrote the articles and the judgments. The judgments were written before either engine's results were looked at, but the numbers show the direction of the change rather than a precise score.
+- **Scores are computed in Python:** fine for hundreds of articles, but a large site would need document frequencies stored in the index.
+
 ## Project layout
 
 ```
 backend/
   config/      Django settings and root URLs
   portal/      Models, API, admin, search, analytics and tests
-    seed/      The 100 demo articles
+    seed/      The 100 demo articles and the judged search queries
 frontend/
   src/pages/       One file per page
   src/components/  Shared pieces such as the comment list

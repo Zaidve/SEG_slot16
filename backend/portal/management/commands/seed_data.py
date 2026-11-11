@@ -84,7 +84,7 @@ SPAM_COMMENTS = [
 SEARCHES = [
     ('harbour', 9), ('Harbour', 3), ('solar', 7), ('school', 6), ('hospital', 6),
     ('football', 5), ('river', 5), ('library', 4), ('energy', 4), ('Bakery', 3),
-    ('salmon', 3), ('marathon', 2), ('time machine', 3), ('moon base', 2),
+    ('salmon', 3), ('marathon', 2), ('teleportation', 3), ('moon base', 2),
     ('dragon sightings', 1),
 ]
 
@@ -251,7 +251,7 @@ class Command(BaseCommand):
         namespace = uuid.UUID('6f1d3a52-0000-4000-8000-000000000000')
         number = 0
         for query, repeats in SEARCHES:
-            results = list(search_documents(query, {}).values_list('pk', flat=True))
+            results = [document.pk for document in search_documents(query, {})]
             for _ in range(repeats):
                 number += 1
                 # Same number, same id: that is how a rerun spots an existing row.

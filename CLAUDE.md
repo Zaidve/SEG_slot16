@@ -2,7 +2,7 @@
 
 University assignment: a small full-stack news portal with CRUD, authentication and role-based access control. Phase 2 (a later assignment) adds a hand-built search engine, so Phase 1 stores the data it needs.
 
-Keep it small. Build what this file lists and nothing more: no revision history, outbox, Kafka, Docker, or index code. Write code a student can explain.
+Keep it small. Build what this file lists and nothing more: no revision history, outbox, Kafka or Docker. Index code belongs only to Phase 2, as its section describes. Write code a student can explain.
 
 ## How to work
 
@@ -181,3 +181,15 @@ Link it from the admin index.
 - [ ] `SearchClickLog` has `user_id`, `query_string`, `clicked_doc_id`, `timestamp`
 - [ ] At least 50 to 100 realistic seeded records
 - [ ] Code in a Git repository
+
+## Phase 2: Hand-built search engine
+
+Agreed scope (there is no separate brief). It replaces only `search_documents(query, filters)`, so the API, click logging, analytics and React pages stay unchanged.
+
+- **Analyzer** (`portal/text.py`): fold case and accents, split into words with positions, undo plurals with Harman's S-stemmer. Documents and queries use the same steps.
+- **Inverted index** (`Posting`, `IndexedDocument`): published documents only, two fields (title, and body = summary + `content_text`). Kept current by a `post_save` signal; `build_index` rebuilds it.
+- **Ranking** (`portal/search.py`): BM25F with title weight 3, every query word required, `"quoted phrases"` matched by position, newer first on ties. Status is still checked at query time.
+- **Evaluation** (`portal/evaluation.py`, `seed/search_judgments.json`): about 30 judged queries; `evaluate_search` compares Phase 1 keyword search with BM25 on nDCG@10, MRR and Recall@10.
+- Not in scope unless asked: spelling suggestions, search-as-you-type, snippets with highlighting.
+
+**Done when:** all tests pass, `evaluate_search` shows BM25 beating the baseline, and searching in the browser uses the new engine.
