@@ -82,6 +82,26 @@ Password for every account: `demo-password-123`
 
 Staff accounts can also log in to the website. Roles are Django Groups, and a logged-in user with no group is a Reader.
 
+## Deploy on Render
+
+The repository includes a Render Blueprint (`render.yaml`) for a free web service and a free PostgreSQL database. In production Django serves everything from one address: the built React app, the API, the admin and uploaded images.
+
+1. Push the repository to GitHub.
+2. In the [Render dashboard](https://dashboard.render.com), choose **New > Blueprint** and pick the repository.
+3. When asked for `DEMO_PASSWORD`, enter a password of your own. The demo accounts on the public site use it instead of the README password.
+4. Click **Apply**. The first build takes a few minutes. The site then runs at `https://news-portal-XXXX.onrender.com`, with the admin at `/admin/`.
+
+What happens on each deploy:
+
+- `render-build.sh` installs Python packages, builds the React app into `frontend/dist` and collects the admin's static files.
+- `render-start.sh` applies migrations, runs `seed_data` and starts Gunicorn. WhiteNoise serves the static files.
+
+Limits of the free plan:
+
+- The site sleeps after 15 minutes without visitors, and the next visit takes about a minute to wake it.
+- The disk is wiped on every restart. Article banners are redrawn by `seed_data`, but avatars that users upload are lost.
+- Render deletes free databases 30 days after they are created unless you upgrade.
+
 ## Tests
 
 ```powershell

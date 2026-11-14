@@ -37,6 +37,20 @@ ALLOWED_HOSTS = [
     if host.strip()
 ]
 
+# Render sets this to the site's public hostname, e.g. news-portal.onrender.com.
+RENDER_HOST = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_HOST:
+    ALLOWED_HOSTS.append(RENDER_HOST)
+
+# Django checks the Origin header of HTTPS form posts against this list.
+CSRF_TRUSTED_ORIGINS = [f'https://{host}' for host in ALLOWED_HOSTS]
+
+if not DEBUG:
+    # Render ends HTTPS at its proxy and forwards plain HTTP with this header.
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+
 
 # Application definition
 
@@ -53,6 +67,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # Serves admin static files and the built React app without a separate web server.
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -135,6 +151,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# The built React app (npm run build). WhiteNoise serves its files from the site
+# root, e.g. /assets/index-abc.js, and urls.py returns its index.html for page URLs.
+FRONTEND_DIST = BASE_DIR.parent / 'frontend' / 'dist'
+WHITENOISE_ROOT = FRONTEND_DIST
 
 # User uploads (avatars, article images)
 MEDIA_URL = 'media/'

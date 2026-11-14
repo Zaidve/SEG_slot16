@@ -21,3 +21,6 @@ dist/
 
 # Claude Code local files
 .claude/
+
+# Django collectstatic output
+/backend/staticfiles/

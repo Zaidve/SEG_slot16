@@ -3,6 +3,7 @@ import datetime
 import html
 import io
 import json
+import os
 import random
 import textwrap
 import uuid
@@ -33,7 +34,9 @@ from portal.search import search_documents
 ARTICLES_FILE = Path(__file__).resolve().parents[2] / 'seed' / 'articles.json'
 
 # Demo only, and listed in the README. Never reuse this anywhere real.
-DEMO_PASSWORD = 'demo-password-123'
+# A public site sets DEMO_PASSWORD in its environment so the accounts are not open
+# to anyone who reads the README. It applies only when an account is first created.
+DEMO_PASSWORD = os.environ.get('DEMO_PASSWORD') or 'demo-password-123'
 
 ACCOUNTS = [
     ('superadmin', 'Sam Superadmin', SUPER_ADMIN),

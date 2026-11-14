@@ -1,0 +1,39 @@
+# Render Blueprint: one free web service and one free PostgreSQL database.
+# In the Render dashboard choose New > Blueprint and pick this repository.
+databases:
+  - name: news-portal-db
+    plan: free
+    databaseName: news_portal
+    user: news_portal
+
+services:
+  - type: web
+    name: news-portal
+    runtime: python
+    plan: free
+    buildCommand: ./render-build.sh
+    startCommand: ./render-start.sh
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: NODE_VERSION
+        value: "24"
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      # Render asks for this when the Blueprint is created. It becomes the
+      # password of the demo accounts on the public site.
+      - key: DEMO_PASSWORD
+        sync: false
+      - key: DB_NAME
+        fromDatabase: { name: news-portal-db, property: database }
+      - key: DB_USER
+        fromDatabase: { name: news-portal-db, property: user }
+      - key: DB_PASSWORD
+        fromDatabase: { name: news-portal-db, property: password }
+      - key: DB_HOST
+        fromDatabase: { name: news-portal-db, property: host }
+      - key: DB_PORT
+        fromDatabase: { name: news-portal-db, property: port }
